@@ -1,34 +1,30 @@
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import './Main.css';
-
-import bannerImage from "./image/phone.png";
-
-import phones from './phones.json';
+import IPhone from './IPhone';
+import bannerImage from './image/phone.png';
 
 function Main() {
-  console.log(phones);
   return (
-    <div>
-        <Header/>
-        
+    <BrowserRouter>
+      <div>
+        <Header />
         <div className="pageAfterHeader">
-            <div className="heroBanner">
-              <div className='repairText'><h2>Repair Is Our Specialty</h2></div>
-              <div className="heroImage"><img src={bannerImage}></img></div>
+          <div className="heroBanner">
+            <div className="repairText">
+              <h2>Repair Is Our Specialty</h2>
             </div>
-
-
-
-
+            <div className="heroImage">
+              <img src={bannerImage} alt="Phone Banner" />
+            </div>
+          </div>
         </div>
-        
-
-
-     
-
-     
-      
-    </div>
+      </div>
+      <Routes>
+        <Route path="/iphones" element={<IPhone />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

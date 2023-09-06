@@ -1,4 +1,5 @@
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Main.css';
 
 import phones from './phones.json';
@@ -32,13 +33,13 @@ function Header() {
 
         <div className="headerBottom">
         
-          <ul>
-            <li className="activeLink"><a>Home</a></li>
-            <li className="link"><a>Apple</a></li>
-            <li className="link"><a>Samsung</a></li>
-            <li className="link"><a>Contact Us</a></li>
+        <ul>
+  <li className="activeLink"><a href="/">Home</a></li>
+  <li className="link"><Link to="/iphones">Apple</Link></li>
+  <li className="link"><a href="/">Samsung</a></li>
+  <li className="link"><a href="/">Contact Us</a></li>
+</ul>
 
-          </ul>
 
         </div>
 
