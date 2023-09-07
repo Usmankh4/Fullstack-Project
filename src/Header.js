@@ -1,6 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import './Main.css';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+} from 'react-router-dom';
 
 import phones from './phones.json';
 
@@ -34,11 +41,11 @@ function Header() {
         <div className="headerBottom">
         
         <ul>
-  <li className="activeLink"><a href="/">Home</a></li>
-  <li className="link"><Link to="/iphones">Apple</Link></li>
-  <li className="link"><a href="/">Samsung</a></li>
-  <li className="link"><a href="/">Contact Us</a></li>
-</ul>
+          <li className="activeLink"><a href="/">Home</a></li>
+          <li className="link"><Link to="/iphones">Apple</Link></li>
+          <li className="link"><a href="/">Samsung</a></li>
+          <li className="link"><a href="/">Contact Us</a></li>
+      </ul>
 
 
         </div>

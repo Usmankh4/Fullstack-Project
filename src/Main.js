@@ -7,8 +7,9 @@ import bannerImage from './image/phone.png';
 
 function Main() {
   return (
-    <BrowserRouter>
+    
       <div>
+        <div>
         <Header />
         <div className="pageAfterHeader">
           <div className="heroBanner">
@@ -21,10 +22,13 @@ function Main() {
           </div>
         </div>
       </div>
+
       <Routes>
-        <Route path="/iphones" element={<IPhone />} />
+
+        <Route path="iphones" element={<IPhone />} />
       </Routes>
-    </BrowserRouter>
+
+    </div>
   );
 }
 

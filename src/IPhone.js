@@ -8,4 +8,4 @@ function IPhone() {
   )
 }
 
-export default IPhone
+export default IPhone;
