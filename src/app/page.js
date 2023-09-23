@@ -1,8 +1,9 @@
-
+import iphone from "../image/14phone.png";
 import Header from './header'
 import BannerImage from './images/phone.png'
 import Image from 'next/image'
-
+import samsung from "../image/samsung.png";
+import google from "../image/google.png";
 export default function Home() {
   return (
     <div>
@@ -17,8 +18,47 @@ export default function Home() {
                   src={BannerImage}></Image>
               </div>
             </div>
-            </div>
+            <div className="cardWrapper">
+              <div className="cardLayout">
+                <div className="iPhoneCard">
+                  <h2>Apple</h2>
+                  <button>View All</button>
+                  <div className="iPhoneImage">
+                  <Image src={iphone}></Image>
+                  </div>
+               
 
-      </div>
+
+
+                </div>
+                
+                <div className="iPhoneCard">
+                  <h2>Samsung</h2>
+                  <button>View All</button>
+                  <div className="iPhoneImage">
+                  <Image src={iphone}></Image>
+                  </div>
+
+
+</div>
+
+<div className="iPhoneCard">
+                  <h2>Android</h2>
+                  <button>View All</button>
+                  <div className="iPhoneImage">
+                  <Image src={iphone}></Image>
+                  </div>
+                </div>
+              
+             </div>
+            
+                
+                </div>
+                </div>
+              </div>
+         
+          
+      
+      
   )
 }

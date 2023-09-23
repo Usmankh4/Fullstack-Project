@@ -37,7 +37,6 @@ padding-left: 3%;
   margin-right: auto;
   padding-top: 20px;
   padding-bottom: 10px;
-
 display: flex;
 }
 
@@ -91,6 +90,7 @@ text-transform: uppercase;
   padding: 20px;
   color: #fff9;
   font-weight: bold;
+ 
 }
 
 ul {
@@ -98,6 +98,7 @@ ul {
   padding-bottom: 20px;
   margin-block-start: 10px;
   padding-inline-start: 10px;
+  text-decoration: none important!;
 }
 
 .activeLink a {
@@ -168,6 +169,42 @@ cursor: pointer;
 @-ms-keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.cardWrapper{
+  margin-top: 50px;
+  display: flex;
+}
+.cardLayout{
+  display: flex;
+}
+.iPhoneImage{
+  margin-top: 50px;
+  
+}
+
+
+
+.iPhoneCard button{
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  color: #8a8a8a;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.iPhoneCard{
+  border-style: solid;
+    border-width: 0 0 1px 1px;
+    padding: 10 40px;
+    text-align: center;
+    border-color: #f0f0f0;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    padding: 10 40px;
+    
+    
 }
 
 
