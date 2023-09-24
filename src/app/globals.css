@@ -177,6 +177,7 @@ cursor: pointer;
 }
 .cardLayout{
   display: flex;
+  width: 100%;
 }
 .iPhoneImage{
   margin-top: 50px;
@@ -203,6 +204,8 @@ cursor: pointer;
     border-style: solid;
     border-width: 0 0 1px 1px;
     padding: 10 40px;
+    width: 100%;
+
     
     
 }
