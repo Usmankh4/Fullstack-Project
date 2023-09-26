@@ -26,7 +26,7 @@ export default function Header() {
   </div>
   <div className="navbar-center hidden lg:flex " >
     <ul className="menu menu-horizontal px-1 ">
-      <li className='text-base-100' ><a>Home</a></li>
+      <li><a className='text-base-300'>Home</a></li>
       <li className='text-base-100'><a>Apple</a></li>
       <li className='text-base-100'><a>Samsung</a></li>
       <li className='text-base-100'><a>Contact us</a></li>
