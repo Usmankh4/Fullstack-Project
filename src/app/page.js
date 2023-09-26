@@ -1,9 +1,10 @@
-import iphone from "../image/14phone.png";
+import iphone from "../image/iphone14crop.png";
 import Header from "./header";
 import BannerImage from "./images/phone.png";
 import Image from "next/image";
 import samsung from "../image/samsung.png";
 import google from "../image/google.png";
+import Footer from "./footer";
 export default function Home() {
   return (
     <div>
@@ -47,6 +48,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+      <Footer/>
+      </div>
+   
   );
 }

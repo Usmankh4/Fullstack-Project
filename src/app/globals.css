@@ -172,7 +172,7 @@ cursor: pointer;
 }
 
 .cardWrapper{
-  margin-top: 50px;
+  margin-top: 150px;
   display: flex;
 }
 .cardLayout{
@@ -201,13 +201,32 @@ cursor: pointer;
     padding: 10 40px;
     text-align: center;
     border-color: #f0f0f0;
-    border-style: solid;
-    border-width: 0 0 1px 1px;
+    border-style: double;
+    border-width:  0 1px 1px;
     padding: 10 40px;
     width: 100%;
-
+   
     
-    
+}
+.iPhoneCard:hover{
+  transition: color .1s ease-in,background-color .1s ease-in;
+  background-color: #0000000f;
+  cursor: pointer;
+  background-color: #f0f0f0;
 }
 
 
+.footer{
+  background-color: #222222;
+
+}
+.container{
+  max-width: 1170px;
+  background-color: #222222;
+  margin: auto;
+  margin-top: 55px;
+}
+
+ul{
+  list-style: none;
+}
