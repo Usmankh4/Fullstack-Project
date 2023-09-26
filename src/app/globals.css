@@ -90,7 +90,12 @@ text-transform: uppercase;
   padding: 20px;
   color: #fff9;
   font-weight: bold;
+  
  
+}
+ul li a{
+  text-decoration: none;
+  color: grey;
 }
 
 ul {
@@ -98,7 +103,7 @@ ul {
   padding-bottom: 20px;
   margin-block-start: 10px;
   padding-inline-start: 10px;
-  text-decoration: none important!;
+  
 }
 
 .activeLink a {
@@ -172,12 +177,14 @@ cursor: pointer;
 }
 
 .cardWrapper{
-  margin-top: 50px;
+  margin-top: 250px;
   display: flex;
+  margin-bottom: 50px;
 }
 .cardLayout{
   display: flex;
   width: 100%;
+  
 }
 .iPhoneImage{
   margin-top: 50px;
@@ -202,12 +209,20 @@ cursor: pointer;
     text-align: center;
     border-color: #f0f0f0;
     border-style: solid;
-    border-width: 0 0 1px 1px;
+    border-width: 0 1px 1px;
     padding: 10 40px;
     width: 100%;
-
     
     
 }
 
+.iPhoneCard:hover{
+  transition: color .1s ease-in,background-color .1s ease-in;
+  background-color: #0000000f;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
 
+.footer-col ul{
+  display: flex;
+}
