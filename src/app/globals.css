@@ -149,8 +149,6 @@ cursor: pointer;
 
 }
 
-
-
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
@@ -223,6 +221,7 @@ cursor: pointer;
   background-color: #f0f0f0;
 }
 
-.footer-col ul{
-  display: flex;
+.footer{
+  background-color: #222222;
+  
 }
