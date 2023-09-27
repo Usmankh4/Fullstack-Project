@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div>
       <Header />
-      
       <div className="pageAfterHeader">
         <div className="heroBanner">
           <div className="repairText">
@@ -20,9 +19,7 @@ export default function Home() {
           </div>
         </div>
 
-        
-
-        <div className="mt-[250px] flex mb-[50px] sm:mt-[50px] sm: mb[20px]">
+        <div className="cardWrapper">
           <div className="cardLayout">
             <div className="iPhoneCard">
               <h2>Apple</h2>
@@ -58,8 +55,3 @@ export default function Home() {
      
   );
 }
-/*
-margin-top: 250px;
-  display: flex;
-  margin-bottom: 50px;
-  */
