@@ -76,16 +76,16 @@ display: flex;
   fill: black;
 }
 
-.headerBottom{
- 
+/* headerTop has padding-left 3% but ul problem */
+.headerBottom {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-
 }
+
 ul li {
   font-size: 14px;
-text-transform: uppercase;
+  text-transform: uppercase;
   display: inline;
   padding: 20px;
   color: #fff9;
@@ -93,7 +93,7 @@ text-transform: uppercase;
   
  
 }
-ul li a{
+ul li a {
   text-decoration: none;
   color: grey;
 }
@@ -116,7 +116,7 @@ ul {
   color: white;
   border-bottom: #8a8a8a solid 4px;
   padding-bottom: 16px;
-cursor: pointer;
+  cursor: pointer;
 }
 
 .heroBanner{
@@ -224,4 +224,106 @@ cursor: pointer;
 .footer{
   background-color: #222222;
   
+}
+
+/*Copied exactly as headerBottom, but added 3% padding-left as no ul issue*/
+.footerBottom {
+  padding-left: 3%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+}
+
+.footerBottom p {
+  color: white;
+  font-size: 13px;
+
+}
+
+.footerTopLeft{
+  flex: 0%;
+
+}
+
+
+.footerTopMiddle {
+  flex: 5%;
+}
+
+
+.footerTopRight{
+  padding-right: 5%;
+}
+
+.footerTopLeft a {
+  display: block;
+}
+
+
+.footerTopLeft .activeLink a {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+
+}
+.link a:hover {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.footerTopLeft ul li {
+  padding: 10px;
+  
+}
+
+.footerTopLeft ul {
+
+  padding-inline-start: 0px;
+  padding-top: 0px;
+  
+}
+
+.footerTopLeft h4 {
+  color:white;
+  padding-top: 10px;
+ 
+}
+
+.footerTopRight a {
+  display: block;
+}
+
+
+.footerTopRight .activeLink a {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+
+}
+.link a:hover {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.footerTopRight ul li {
+  padding: 10px;
+  
+}
+
+.footerTopRight ul {
+
+  padding-inline-start: 0px;
+  padding-top: 0px;
+  
+}
+
+.footerTopRight h4 {
+  color:white;
+  padding-top: 10px;
+ 
 }
