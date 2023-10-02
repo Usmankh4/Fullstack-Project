@@ -1,3 +1,5 @@
+
+
 body {
 
   margin: 0;
@@ -62,7 +64,7 @@ display: flex;
 }
   
 .headerTopRight .svgIcon:hover{
-  fill:black;
+  fill:grey;
 }  
 
 .headerTopRight .svgIconShop{
@@ -73,7 +75,7 @@ display: flex;
 
 }
 .headerTopRight .svgIconShop:hover{
-  fill: black;
+  fill: grey;
 }
 
 .headerBottom{
@@ -90,7 +92,12 @@ text-transform: uppercase;
   padding: 20px;
   color: #fff9;
   font-weight: bold;
+  
  
+}
+ul li a{
+  text-decoration: none;
+  color: grey;
 }
 
 ul {
@@ -98,7 +105,7 @@ ul {
   padding-bottom: 20px;
   margin-block-start: 10px;
   padding-inline-start: 10px;
-  text-decoration: none important!;
+  
 }
 
 .activeLink a {
@@ -144,8 +151,6 @@ cursor: pointer;
 
 }
 
-
-
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
@@ -172,12 +177,14 @@ cursor: pointer;
 }
 
 .cardWrapper{
-  margin-top: 150px;
+  margin-top: 250px;
   display: flex;
+  margin-bottom: 0px;
 }
 .cardLayout{
   display: flex;
   width: 100%;
+  
 }
 .iPhoneImage{
   margin-top: 50px;
@@ -201,13 +208,15 @@ cursor: pointer;
     padding: 10 40px;
     text-align: center;
     border-color: #f0f0f0;
-    border-style: double;
-    border-width:  0 1px 1px;
+    border-style: solid;
+    border-width: 0 1px 1px;
     padding: 10 40px;
     width: 100%;
-   
+    
+    
     
 }
+
 .iPhoneCard:hover{
   transition: color .1s ease-in,background-color .1s ease-in;
   background-color: #0000000f;
@@ -215,18 +224,152 @@ cursor: pointer;
   background-color: #f0f0f0;
 }
 
-
 .footer{
   background-color: #222222;
-
-}
-.container{
-  max-width: 1170px;
-  background-color: #222222;
-  margin: auto;
-  margin-top: 155px;
+  
 }
 
-ul{
-  list-style: none;
+/*Copied exactly as headerBottom, but added 3% padding-left as no ul issue*/
+.footerBottom {
+  padding-left: 3%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+}
+
+.footerBottom p {
+  color: white;
+  font-size: 13px;
+
+}
+
+.footerTopLeft{
+  flex: 0%;
+
+}
+
+
+.footerTopMiddle {
+  flex: 5%;
+}
+
+
+.footerTopRight{
+  padding-right: 5%;
+}
+
+.footerTopLeft a {
+  display: block;
+}
+
+
+.footerTopLeft .activeLink a {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+
+}
+.link a:hover {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.footerTopLeft ul li {
+  padding: 10px;
+  
+}
+
+.footerTopLeft ul {
+
+  padding-inline-start: 0px;
+  padding-top: 0px;
+  
+}
+
+
+
+.footerTopRight a {
+  display: block;
+}
+
+
+.footerTopRight .activeLink a {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+
+}
+.link a:hover {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.footerTopRight ul li {
+  padding: 10px;
+  
+}
+
+.footerTopRight ul {
+
+  padding-inline-start: 0px;
+  padding-top: 0px;
+  
+}
+
+.footerTopRight h4 {
+  color:white;
+  padding-top: 10px;
+  font-size: 20px;
+ 
+}
+.footerTopLeft h4 {
+  color:white;
+  padding-top: 10px;
+ font-size: 20px;
+}
+
+.cardsBelowContainer {
+  display: block;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 0; 
+  border-top: 0px solid #8a8a8a;
+ 
+  
+}
+.CardsBelow{
+  display: flex;
+  gap: 0px;
+  margin-bottom: 120px;
+}
+.bigcard {
+  border-style: solid;
+  border-width: 0 1px 1px;
+  padding: 10px 40px;
+  text-align: center;
+  border-color: #f0f0f0;
+  width: calc(50% - 1px); /* Divide container into two equal parts */
+  box-sizing: border-box; /* Ensure padding doesn't increase width */
+  margin-bottom: 20px; /* Add some vertical spacing between cards */
+}
+
+.bigcard:hover {
+  transition: color 0.1s ease-in, background-color 0.1s ease-in;
+  background-color: #0000000f;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.bigcard button {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  color: #8a8a8a;
+  margin-top: 10px;
+  cursor: pointer;
 }
