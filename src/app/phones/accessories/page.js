@@ -1,22 +1,14 @@
 import '../../globals.css';
 import Header from '../../header';
-import phones from '../../phones.json';
 
-export default function iphone() {
-  console.log(phones);
+export default function accessories() {
     return (
 
       <div>
-        
         <Header></Header>
         <div className="pageAfterHeader">
-        <div className="PhoneGrid">
-        
-            
-          
 
-
-        </div>
+        <h3> This is the accessories page </h3>
       </div>
       </div>
 
