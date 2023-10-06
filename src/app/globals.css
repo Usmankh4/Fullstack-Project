@@ -229,3 +229,185 @@ ul {
   background-color: #222222;
   
 }
+
+/*Copied exactly as headerBottom, but added 3% padding-left as no ul issue*/
+.footerBottom {
+  padding-left: 3%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+}
+
+.footerBottom p {
+  color: white;
+  font-size: 13px;
+
+}
+
+.footerTopLeft{
+  flex: 0%;
+
+}
+
+
+.footerTopMiddle {
+  flex: 5%;
+}
+
+
+.footerTopRight{
+  padding-right: 5%;
+}
+
+.footerTopLeft a {
+  display: block;
+}
+
+
+.footerTopLeft .activeLink a {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+
+}
+.link a:hover {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.footerTopLeft ul li {
+  padding: 10px;
+  
+}
+
+.footerTopLeft ul {
+
+  padding-inline-start: 0px;
+  padding-top: 0px;
+  
+}
+
+
+.footerTopLeft h4 {
+  color:white;
+  padding-top: 10px;
+ 
+}
+
+.footerTopRight a {
+  display: block;
+}
+
+
+.footerTopRight .activeLink a {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+
+}
+.link a:hover {
+  color: white;
+  border-bottom: unset;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.footerTopRight ul li {
+  padding: 10px;
+  
+}
+
+.footerTopRight ul {
+
+  padding-inline-start: 0px;
+  padding-top: 0px;
+  
+}
+
+.footerTopRight h4 {
+  color:white;
+  padding-top: 10px;
+
+
+  font-size: 20px;
+ 
+}
+.footerTopLeft h4 {
+  color:white;
+  padding-top: 10px;
+ font-size: 20px;
+}
+
+.cardsBelowContainer {
+  display: block;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 0; 
+  border-top: 0px solid #8a8a8a;
+ 
+  
+}
+.CardsBelow{
+  display: flex;
+  gap: 0px;
+  margin-bottom: 120px;
+}
+.bigcard {
+  border-style: solid;
+  border-width: 0 1px 1px;
+  padding: 10px 40px;
+  text-align: center;
+  border-color: #f0f0f0;
+  width: calc(50% - 1px); /* Divide container into two equal parts */
+  box-sizing: border-box; /* Ensure padding doesn't increase width */
+  margin-bottom: 20px; /* Add some vertical spacing between cards */
+}
+
+.bigcard:hover {
+  transition: color 0.1s ease-in, background-color 0.1s ease-in;
+  background-color: #0000000f;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.bigcard button {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  color: #8a8a8a;
+  margin-top: 10px;
+  cursor: pointer;
+
+}
+
+.ContactContainer{
+  margin-top: 60px;
+
+ 
+}
+.categories {
+  width: 100%;
+  height: 100%;
+}
+.categories .brand-group {
+  display: flex;
+  justify-content: center;
+}
+.categories .cardWrapper{
+  margin-top: 0;
+  margin-bottom: 0;
+  
+}
+.categories h1{
+  padding: 3rem;
+  text-align: center;
+
+}
+
+.categories .CardTitle{
+  font-size: 1rem;
+  padding: 0.5rem;
+}

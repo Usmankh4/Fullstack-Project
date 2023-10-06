@@ -5,7 +5,7 @@ const PhoneCard = ({name,image}) => {
     <div className="cardWrapper">
         <div className="cardLayout">
         <div className="iPhoneCard">
-            <h2>{name}</h2>
+            <h2 className="CardTitle">{name}</h2>
             <button>View All</button>
             <div className="iPhoneImage">
                 <Image src={image} width={200} height={200}/>
