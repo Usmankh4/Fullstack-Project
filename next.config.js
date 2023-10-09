@@ -12,6 +12,9 @@ const nextConfig = {
       },
       
     },
+    images: {
+      domains: ['t3.ftcdn.net', 'media.istockphoto.com', 'img.global.news.samsung.com', 'www.shutterstock.com', 'fdn2.gsmarena.com'],
+    },
     // ...
   }
 
