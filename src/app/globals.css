@@ -187,8 +187,8 @@ ul {
   
 }
 .iPhoneImage{
-  margin-top: 50px;
-  
+  margin-top: 55px;
+  margin-bottom: 55px;
 }
 
 
@@ -361,9 +361,9 @@ ul {
   padding: 10px 40px;
   text-align: center;
   border-color: #f0f0f0;
-  width: calc(50% - 1px); /* Divide container into two equal parts */
-  box-sizing: border-box; /* Ensure padding doesn't increase width */
-  margin-bottom: 20px; /* Add some vertical spacing between cards */
+  width: calc(50% - 1px); 
+  box-sizing: border-box; 
+  margin-bottom: 20px; 
 }
 
 .bigcard:hover {

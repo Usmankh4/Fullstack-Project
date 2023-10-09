@@ -1,9 +1,9 @@
-import iphone from "../image/iphone14crop.png";
+import iphone from "../image/15promax.jpg";
 import Header from "./header";
 import BannerImage from "./images/phone.png";
 import Image from "next/image";
-import samsung from "../image/samsung.png";
-import google from "../image/google.png";
+import samsung from "../image/samsungultra.jpg";
+import google from "../image/Pixel8.png";
 import Footer from "./footer";
 import Link from "next/link";
 
