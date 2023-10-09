@@ -1,5 +1,5 @@
-import './globals.css';
-import phones from './phones.json';
+import '../globals.css';
+import phones from '../phones.json';
 import Link from 'next/link';
 
 

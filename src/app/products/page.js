@@ -1,9 +1,8 @@
-import Header from "../header";
-import Footer from "../footer"
+import Header from "../components/header";
+import Footer from "../components/footer"
 import phonesData from "../phones.json"
-import PhoneCard from "@/components/phonecard";
-import groupByBrand from "@/components/groupbybrand";
-
+import PhoneCard from "../components/phoneCard";
+import groupByBrand from "../components/groupByBrand";
 export default function Page() {
   const groupedPhones = groupByBrand(phonesData);
   console.log(phonesData)

@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./globals.css";
+import "../globals.css";
 
-import phones from "./phones.json";
+import phones from "../phones.json";
 
 import Link from "next/link";
 
-function footer() {
+function Footer() {
   return (
     // <footer className="footer">
     //     <div className="container">
@@ -144,4 +144,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;
