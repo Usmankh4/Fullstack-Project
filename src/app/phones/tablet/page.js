@@ -1,5 +1,6 @@
 import '../../globals.css';
 import Header from '../../header';
+import Footer from '../../footer';
 
 export default function tablet() {
     return (
@@ -10,6 +11,7 @@ export default function tablet() {
 
         <h3> This is the tablet page </h3>
       </div>
+      <Footer></Footer>
       </div>
 
     )

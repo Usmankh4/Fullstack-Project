@@ -137,7 +137,7 @@ function footer() {
   <li className="link"><Link href="/contactus">Contact Us</Link></li>
 </ul> */}
 
-          <p>Copyright</p>
+          <p>Copyright @Zainwireless</p>
         </div>
       </div>
     </div>

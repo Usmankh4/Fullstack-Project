@@ -1,30 +1,43 @@
-import Header from '../../header';
-import Footer from '../../footer';
+import React from "react";
+import Header from "../../header";
+import Footer from "../../footer";
 import phonesData from "../../phones.json";
-import PhoneCard from "@/components/phonecard";
-import groupByBrand from "@/components/groupbybrand";
 
-export default function Page() {
-  const groupedPhones = groupByBrand(phonesData);
-  console.log(phonesData);
-  
-  
-  const applePhones = groupedPhones['Apple'] || [];
+function Page() {
+  const filteredPhones = [];
+
+  for (let i = 0; i < phonesData.length; i++) {
+    const phone = phonesData[i];
+    if (phone.brand === "Apple") {
+      filteredPhones.push(phone);
+    }
+  }
 
   return (
     <div>
       <Header />
-      <div className="categories">
-
-       <div className="category-title"> <h1>iPhone</h1>
-        <div className="brand-group">
-          {applePhones.map(phone => (
-            <PhoneCard key={phone.name} name={phone.name} image={phone.thumbnail} />
-          ))}
-        </div>
+      <div className="pageAfterHeader">
+      <div className="cardWrapper">
+              <div className="cardLayout">
+        {filteredPhones.map((phone) => (
+          
+          
+                <div className="iPhoneCard">
+                  <h2>{phone.name}</h2>
+                  
+                  <img src={phone.thumbnail} />
+                </div>
+            
+            
+          
+        ))}
+      </div>
       </div>
       </div>
       <Footer />
     </div>
+    
   );
 }
+
+export default Page;

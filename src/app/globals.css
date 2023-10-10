@@ -388,26 +388,11 @@ ul {
 
  
 }
-.categories {
-  width: 100%;
-  height: 100%;
-}
-.categories .brand-group {
+.phoneWrapper {
+  margin-bottom: 0px;
   display: flex;
-  justify-content: center;
-}
-.categories .cardWrapper{
-  margin-top: 0;
-  margin-bottom: 0;
-  
-}
-.categories h1{
-  padding: 3rem;
-  text-align: center;
-
 }
 
-.categories .CardTitle{
-  font-size: 1rem;
-  padding: 0.5rem;
+.phoneLayout{
+  display: flex;
 }

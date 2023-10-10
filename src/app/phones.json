@@ -14,6 +14,36 @@
     "name": "iPhone 11",
     "brand": "Apple",
     "storage": 128,
+    "thumbnail": "ZainWireless/src/image/15promax.jpg",
+    "color": "black",
+    "price": 200
+
+
+},
+{
+    "name": "iPhone 11",
+    "brand": "Apple",
+    "storage": 128,
+    "thumbnail": "https://media.istockphoto.com/id/1190447864/photo/apple-iphone-11-pro-gray-smartphone.jpg?s=612x612&w=0&k=20&c=zETLJeguLoTEFBNKPl1vjPY1lvPW1uM6GPpyiMSvsC0=",
+    "color": "black",
+    "price": 200
+
+
+},
+{
+    "name": "iPhone 11",
+    "brand": "Apple",
+    "storage": 128,
+    "thumbnail": "https://media.istockphoto.com/id/1190447864/photo/apple-iphone-11-pro-gray-smartphone.jpg?s=612x612&w=0&k=20&c=zETLJeguLoTEFBNKPl1vjPY1lvPW1uM6GPpyiMSvsC0=",
+    "color": "black",
+    "price": 200
+
+
+},
+{
+    "name": "iPhone 11",
+    "brand": "Apple",
+    "storage": 128,
     "thumbnail": "https://media.istockphoto.com/id/1190447864/photo/apple-iphone-11-pro-gray-smartphone.jpg?s=612x612&w=0&k=20&c=zETLJeguLoTEFBNKPl1vjPY1lvPW1uM6GPpyiMSvsC0=",
     "color": "black",
     "price": 200
@@ -36,7 +66,7 @@
     "name": "Samsung Galaxy S21",
     "brand": "Samsung",
     "storage": 256,
-    "thumbnail": "https://www.shutterstock.com/shutterstock/photos/1893533182/display_1500/stock-vector-realistic-vector-flat-mock-up-samsung-galaxy-s-plus-with-blank-screen-isolated-on-white-1893533182.jpg",
+    "thumbnail": "/app/images/samsung.png",
     "color": "purple",
     "price": 299
 
@@ -52,6 +82,14 @@
     "price": 100
 
 
+},
+{
+    "name": "Airpods 2nd Gen",
+    "brand": "Accessories",
+    "storage": 64,
+    "thumbnail": "https://fdn2.gsmarena.com/vv/pics/lg/lg-velvet-1.jpg",
+    "color": "black",
+    "price": 100
 }
 
 
