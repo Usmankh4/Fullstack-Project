@@ -1,7 +1,8 @@
-import React from "react";
-import Header from "../../header";
-import Footer from "../../footer";
+import '../../globals.css';
+import Header from '@/app/header';
+import Footer from '@/app/footer';
 import phonesData from "../../phones.json";
+
 
 function Page() {
   const filteredPhones = [];
@@ -17,12 +18,15 @@ function Page() {
     <div>
       <Header />
       <div className="pageAfterHeader">
-      <div className="cardWrapper">
-              <div className="cardLayout">
+
+        <div className="phoneTitle"> 
+        <h2>IPHONE</h2>
+      <div className="phoneWrapper">
+              <div className="phoneLayout">
         {filteredPhones.map((phone) => (
           
           
-                <div className="iPhoneCard">
+                <div className="PhoneCard">
                   <h2>{phone.name}</h2>
                   
                   <img src={phone.thumbnail} />
@@ -31,6 +35,7 @@ function Page() {
             
           
         ))}
+      </div>
       </div>
       </div>
       </div>

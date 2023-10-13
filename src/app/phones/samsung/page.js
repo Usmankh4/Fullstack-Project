@@ -1,5 +1,6 @@
-import Header from '../../header';
-import Footer from '../../footer';
+import '../../globals.css';
+import Header from '@/app/header';
+import Footer from '@/app/footer';
 import phonesData from "../../phones.json";
 import PhoneCard from "@/components/phonecard";
 import groupByBrand from "@/components/groupbybrand";

@@ -1,55 +1,59 @@
+
 [
 
 {
-    "name": "iPhone 10",
+    "name": "iPhone 15",
     "brand": "Apple",
     "storage": 128,
-    "thumbnail": "https://t3.ftcdn.net/jpg/02/46/10/66/360_F_246106643_zgImuzcun9iudSeJRMa51RydHkMXFfj5.jpg",
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "red",
     "price": 148.48
 
 },
 
 {
-    "name": "iPhone 11",
+    "name": "iPhone 15",
     "brand": "Apple",
     "storage": 128,
-    "thumbnail": "ZainWireless/src/image/15promax.jpg",
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
+    "color": "black",
+    "price": 200
+
+
+},
+
+
+{
+    "name": "iPhone 15",
+    "brand": "Apple",
+    "storage": 128,
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "black",
     "price": 200
 
 
 },
 {
-    "name": "iPhone 11",
+    "name": "iPhone 15",
     "brand": "Apple",
     "storage": 128,
-    "thumbnail": "https://media.istockphoto.com/id/1190447864/photo/apple-iphone-11-pro-gray-smartphone.jpg?s=612x612&w=0&k=20&c=zETLJeguLoTEFBNKPl1vjPY1lvPW1uM6GPpyiMSvsC0=",
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "black",
     "price": 200
 
 
 },
 {
-    "name": "iPhone 11",
+    "name": "iPhone 15",
     "brand": "Apple",
     "storage": 128,
-    "thumbnail": "https://media.istockphoto.com/id/1190447864/photo/apple-iphone-11-pro-gray-smartphone.jpg?s=612x612&w=0&k=20&c=zETLJeguLoTEFBNKPl1vjPY1lvPW1uM6GPpyiMSvsC0=",
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "black",
     "price": 200
 
 
 },
-{
-    "name": "iPhone 11",
-    "brand": "Apple",
-    "storage": 128,
-    "thumbnail": "https://media.istockphoto.com/id/1190447864/photo/apple-iphone-11-pro-gray-smartphone.jpg?s=612x612&w=0&k=20&c=zETLJeguLoTEFBNKPl1vjPY1lvPW1uM6GPpyiMSvsC0=",
-    "color": "black",
-    "price": 200
 
-
-},
 
 {
     "name": "Samsung Galaxy S10",

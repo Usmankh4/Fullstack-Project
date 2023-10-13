@@ -1,30 +1,24 @@
-import Header from '../../header';
-import Footer from '../../footer';
+import '../../globals.css';
+import Header from '@/app/header';
+import Footer from '@/app/footer';
 import phonesData from "../../phones.json";
 import PhoneCard from "@/components/phonecard";
 import groupByBrand from "@/components/groupbybrand";
 
-export default function Page() {
-  const groupedPhones = groupByBrand(phonesData);
-  console.log(phonesData);
-  
-  
-  const androidPhones = groupedPhones['Android'] || [];
+export default function android() {
+    return (
 
-  return (
-    <div>
-      <Header />
-      <div className="categories">
+      <div>
+        
+        <Header></Header>
 
-       <div className="category-title"> <h1>Android</h1>
-        <div className="brand-group">
-          {androidPhones.map(phone => (
-            <PhoneCard key={phone.name} name={phone.name} image={phone.thumbnail} />
-          ))}
-        </div>
-      </div>
-      </div>
+        <h3> This is the android page </h3>
+
+        
+        <Footer></Footer>
+      
       <Footer />
     </div>
+    
   );
 }

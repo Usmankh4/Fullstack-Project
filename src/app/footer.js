@@ -6,7 +6,7 @@ import phones from "./phones.json";
 
 import Link from "next/link";
 
-function footer() {
+function Footer() {
   return (
     // <footer className="footer">
     //     <div className="container">
@@ -144,4 +144,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;
