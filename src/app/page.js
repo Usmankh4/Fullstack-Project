@@ -26,6 +26,7 @@ export default function Home() {
 
         <div className="cardWrapper">
           <div className="cardLayout">
+            
             <div className="iPhoneCard">
               <Link href="/phones/iphone">
               <h2>Apple</h2>

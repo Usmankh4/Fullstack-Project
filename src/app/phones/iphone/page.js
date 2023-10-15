@@ -3,7 +3,6 @@ import Header from '@/app/header';
 import Footer from '@/app/footer';
 import phonesData from "../../phones.json";
 
-
 function Page() {
   const filteredPhones = [];
 
@@ -18,30 +17,25 @@ function Page() {
     <div>
       <Header />
       <div className="pageAfterHeader">
-
-        <div className="phoneTitle"> 
-        <h2>IPHONE</h2>
-      <div className="phoneWrapper">
-              <div className="phoneLayout">
-        {filteredPhones.map((phone) => (
-          
-          
+        <div className="PhoneTitle"> 
+          <h2>IPHONE</h2>
+          <div className="PhoneWrapper">
+            <div className="PhoneLayout">
+              {filteredPhones.map((phone) => (
                 <div className="PhoneCard">
-                  <h2>{phone.name}</h2>
                   
-                  <img src={phone.thumbnail} />
+                  <h3>{phone.name}</h3>
+                  <div className="PhoneImage">
+                    <img src={phone.thumbnail} />
+                  </div>
                 </div>
-            
-            
-          
-        ))}
-      </div>
-      </div>
-      </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
       <Footer />
     </div>
-    
   );
 }
 

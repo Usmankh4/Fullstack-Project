@@ -53,6 +53,26 @@
 
 
 },
+{
+    "name": "iPhone 15",
+    "brand": "Apple",
+    "storage": 128,
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
+    "color": "black",
+    "price": 200
+
+
+},
+{
+    "name": "iPhone 15",
+    "brand": "Apple",
+    "storage": 128,
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
+    "color": "black",
+    "price": 200
+
+
+},
 
 
 {

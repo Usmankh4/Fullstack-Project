@@ -2,30 +2,41 @@ import '../../globals.css';
 import Header from '@/app/header';
 import Footer from '@/app/footer';
 import phonesData from "../../phones.json";
-import PhoneCard from "@/components/phonecard";
-import groupByBrand from "@/components/groupbybrand";
 
-export default function Page() {
-  const groupedPhones = groupByBrand(phonesData);
-  console.log(phonesData);
-  
-  
-  const samsungPhones = groupedPhones['Samsung'] || [];
+function Page() {
+  const filteredPhones = [];
+
+  for (let i = 0; i < phonesData.length; i++) {
+    const phone = phonesData[i];
+    if (phone.brand === "Samsung") {
+      filteredPhones.push(phone);
+    }
+  }
 
   return (
     <div>
       <Header />
-      <div className="categories">
-
-       <div className="category-title"> <h1>Samsung</h1>
-        <div className="brand-group">
-          {samsungPhones.map(phone => (
-            <PhoneCard key={phone.name} name={phone.name} image={phone.thumbnail} />
-          ))}
+      <div className="pageAfterHeader">
+        <div className="PhoneTitle"> 
+          <h2>IPHONE</h2>
+          <div className="PhoneWrapper">
+            <div className="PhoneLayout">
+              {filteredPhones.map((phone) => (
+                <div className="PhoneCard">
+                  
+                  <h3>{phone.name}</h3>
+                  <div className="PhoneImage">
+                    <img src={phone.thumbnail} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
       </div>
       <Footer />
     </div>
   );
 }
+
+export default Page;
