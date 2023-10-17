@@ -388,8 +388,16 @@ ul {
  
 }
 
+
+.PhoneTitle h2{
+margin-top: 80px;
+margin-bottom: 50px;
+color: #222;
+}
+
 .PhoneWrapper{
   display: inline-block;
+  margin-bottom: 80px;
 }
 .PhoneLayout{
   display: flex;
@@ -408,6 +416,7 @@ ul {
   border-width: 0 1px 1px;
   padding: 23px;
   width: 12rem;
+  height: 300px;
   
   padding-bottom: 35px;
 
@@ -421,4 +430,12 @@ ul {
   background-color: #0000000f;
   cursor: pointer;
   background-color: #f0f0f0;
+}
+
+.PhonePrice h4{
+  opacity: 111111;
+  color: #737373;
+  font-weight: normal;
+
+  
 }

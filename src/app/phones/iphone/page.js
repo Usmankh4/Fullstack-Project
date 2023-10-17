@@ -23,15 +23,19 @@ function Page() {
             <div className="PhoneLayout">
               {filteredPhones.map((phone) => (
                 <div className="PhoneCard">
-                  
                   <h3>{phone.name}</h3>
                   <div className="PhoneImage">
                     <img src={phone.thumbnail} />
+
                   </div>
+                  <div className="PhonePrice">
+                    <h4> on sale for ${phone.price}</h4>
+                </div>
                 </div>
               ))}
             </div>
           </div>
+          
         </div>
       </div>
       <Footer />
