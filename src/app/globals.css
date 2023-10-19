@@ -21,6 +21,8 @@ code {
     monospace;
 }
 
+
+
 .Box {
   background-color: lightgray;
   margin: auto;
@@ -31,6 +33,8 @@ code {
   background-color: #222222;
 
 }
+
+
 
 .headerTop {
 padding-left: 3%;
@@ -187,19 +191,18 @@ ul {
   
 }
 .iPhoneImage{
-  margin-top: 50px;
+  margin-top: 34px;
   
 }
-
-
 
 .iPhoneCard button{
   background-color: transparent;
   border: none;
   font-weight: bold;
   color: #8a8a8a;
-  margin-top: 10px;
+  margin-top: 2px;
   cursor: pointer;
+  font-size: 85%;
 }
 
 .iPhoneCard{
@@ -211,6 +214,7 @@ ul {
     border-width: 0 1px 1px;
     padding: 10 40px;
     width: 100%;
+    padding-bottom: 100px;
 }
 .iPhoneCard a{
   text-decoration: none;
@@ -363,6 +367,8 @@ ul {
   width: calc(50% - 1px); 
   box-sizing: border-box; 
   margin-bottom: 20px; 
+  padding-bottom: 120px;
+
 }
 
 .bigcard:hover {
@@ -377,7 +383,7 @@ ul {
   border: none;
   font-weight: bold;
   color: #8a8a8a;
-  margin-top: 10px;
+  margin-top: 3px;
   cursor: pointer;
 
 }
@@ -387,7 +393,9 @@ ul {
 
  
 }
-
+.PhoneBackground{
+  background-color: #f2f2f2f2;
+}
 
 .PhoneTitle h2{
 margin-top: 80px;
@@ -398,6 +406,7 @@ color: #222;
 .PhoneWrapper{
   display: inline-block;
   margin-bottom: 80px;
+  background-color: white ;
 }
 .PhoneLayout{
   display: flex;
@@ -420,6 +429,9 @@ color: #222;
   
   padding-bottom: 35px;
 
+}
+.PhoneCard h4{
+  padding-bottom: 10px;
 }
 .PhoneImage{
   width: auto;

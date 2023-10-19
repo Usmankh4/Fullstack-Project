@@ -15,6 +15,7 @@ function Page() {
 
   return (
     <div>
+      <div className="PhoneBackground">
       <Header />
       <div className="pageAfterHeader">
         <div className="PhoneTitle"> 
@@ -23,7 +24,7 @@ function Page() {
             <div className="PhoneLayout">
               {filteredPhones.map((phone) => (
                 <div className="PhoneCard">
-                  <h3>{phone.name}</h3>
+                  <h4>{phone.name}</h4>
                   <div className="PhoneImage">
                     <img src={phone.thumbnail} />
 
@@ -39,6 +40,7 @@ function Page() {
         </div>
       </div>
       <Footer />
+    </div>
     </div>
   );
 }
