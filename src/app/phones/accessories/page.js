@@ -1,17 +1,48 @@
 import '../../globals.css';
-import Header from '../../header';
+import Header from '@/app/header';
+import Footer from '@/app/footer';
+import phonesData from "../../phones.json";
 
-export default function accessories() {
-    return (
+function Page() {
+  const filteredPhones = [];
 
-      <div>
-        <Header></Header>
-        <div className="pageAfterHeader">
-
-        <h3> This is the accessories page </h3>
-      </div>
-      </div>
-
-    )
-    
+  for (let i = 0; i < phonesData.length; i++) {
+    const phone = phonesData[i];
+    if (phone.brand === "Accessories") {
+      filteredPhones.push(phone);
+    }
   }
+
+  return (
+    <div>
+      <div className="PhoneBackground">
+      <Header />
+      <div className="pageAfterHeader">
+        <div className="PhoneTitle"> 
+          <h2>ACCESSORIES</h2>
+          <div className="PhoneWrapper">
+            <div className="PhoneLayout">
+              {filteredPhones.map((phone) => (
+                <div className="PhoneCard">
+                  <h4>{phone.name}</h4>
+                  <div className="PhoneImage">
+                    <img src={phone.thumbnail} />
+
+                  </div>
+                  <div className="PhonePrice">
+                    <h4> on sale for ${phone.price}</h4>
+                </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <Footer />
+    </div>
+    </div>
+  );
+}
+
+export default Page;

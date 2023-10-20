@@ -15,26 +15,32 @@ function Page() {
 
   return (
     <div>
+      <div className="PhoneBackground">
       <Header />
       <div className="pageAfterHeader">
         <div className="PhoneTitle"> 
-          <h2>IPHONE</h2>
+          <h2>SAMSUNG</h2>
           <div className="PhoneWrapper">
             <div className="PhoneLayout">
               {filteredPhones.map((phone) => (
                 <div className="PhoneCard">
-                  
-                  <h3>{phone.name}</h3>
+                  <h4>{phone.name}</h4>
                   <div className="PhoneImage">
                     <img src={phone.thumbnail} />
+
                   </div>
+                  <div className="PhonePrice">
+                    <h4> on sale for ${phone.price}</h4>
+                </div>
                 </div>
               ))}
             </div>
           </div>
+          
         </div>
       </div>
       <Footer />
+    </div>
     </div>
   );
 }
