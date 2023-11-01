@@ -7,7 +7,9 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "red",
-    "price": 148.48
+    "price": 148.48,
+    "id": 2238
+
 
 },
 {
@@ -16,7 +18,8 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164410525044719718/iPhone15.jpg?ex=65431cce&is=6530a7ce&hm=3e9a9041918d14fc18ad56bcd1142f89659bbd39272e7c988c4db2827a3c93c3&",
     "color": "black",
-    "price": 200
+    "price": 200,
+    "id":2237
 
 
 },
@@ -26,7 +29,9 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164411140860817508/iPhone15ProMax.jpg?ex=65431d61&is=6530a861&hm=1cbbc1e0a5b6e117c57b2092834461a030ee3eab990aae36ec599fca84650a96&",
     "color": "black",
-    "price": 200
+    "price": 200,
+    "id": 2236
+
 
 
 },
@@ -36,7 +41,9 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164411864575381564/iPhone15Plus.jpg?ex=65431e0e&is=6530a90e&hm=0a8d6a8409346d5a76f9fa3a935effffa96cf0624dc50628a3ac0c876c6d7d0f&",
     "color": "black",
-    "price": 200
+    "price": 200,
+    "id": 2235
+
 
 
 },
@@ -47,7 +54,8 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164409611277832264/iPhone_14.jpg?ex=65431bf5&is=6530a6f5&hm=46c336bab02e5a6213c5fccd4b7b08d0e8e10fece1a31e7da3934a842cd81cdf&",
     "color": "black",
-    "price": 200
+    "price": 200,
+    "id": 2234
 
 
 },
@@ -57,7 +65,9 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164427190369255494/iPhone14Pro.jpg?ex=65432c54&is=6530b754&hm=3f150af8df637a96495d68a86f8e855854931f87f9180b9acdf757e0ab0b65cc&",
     "color": "black",
-    "price": 200
+    "price": 200,
+    "id": 2233
+
 
 
 },
@@ -70,7 +80,9 @@
     "storage": 64,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165010643854831726/SamsungGalaxyUltra23.jpg?ex=65454bb6&is=6532d6b6&hm=9c5bd448c3345cd9d97efad1d03d5a5fd38885bf18feebec6bf6262f870c08c2&",
     "color": "black",
-    "price": 100
+    "price": 100,
+    "id": 2232
+
 
 },
 

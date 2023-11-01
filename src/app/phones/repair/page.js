@@ -1,3 +1,4 @@
+import Footer from '../../footer';
 import '../../globals.css';
 import Header from '../../header';
 import Image from "next/image";
@@ -8,7 +9,7 @@ export default function repair() {
       <Header></Header>
       <div className="pageAfterHeader">
         <h3> This is the repair page </h3>
-
+<div className="RepairWrapper">
         <div className="phones-grid">
           <div className="phone-card">
             <div className="phonePicture">
@@ -20,6 +21,9 @@ export default function repair() {
           </div>
         </div>
       </div>
+</div>
+<Footer></Footer>
+
     </div>
   );
 }

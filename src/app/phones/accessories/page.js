@@ -30,7 +30,7 @@ function Page() {
 
                   </div>
                   <div className="PhonePrice">
-                    <h4> on sale for ${phone.price}</h4>
+                    <h4> On sale from ${phone.price}</h4>
                 </div>
                 </div>
               ))}
