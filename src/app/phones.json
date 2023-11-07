@@ -31,6 +31,7 @@
     "color": "black",
     "price": 200,
     "id": 2236
+    
 
 
 
@@ -95,7 +96,9 @@
     "storage": 64,
     "thumbnail": "https://fdn2.gsmarena.com/vv/pics/lg/lg-velvet-1.jpg",
     "color": "black",
-    "price": 100
+    "price": 100,
+    "id":1400
+
 
 
 },
@@ -108,7 +111,9 @@
     "storage": 64,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165017451554144326/Glass.jpg?ex=6545520d&is=6532dd0d&hm=e300bd663db65fc823ecae17b525059494b95ff598eea427e6ddb10ea050264d&",
     "color": "black",
-    "price": 100
+    "price": 100,
+    "id":14000
+
 },
 
 
@@ -118,7 +123,8 @@
     "storage": 64,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165006522179403776/SamsungWallAdapter.jpg?ex=654547df&is=6532d2df&hm=88faad7ef59c607928fdb63d369cfbfc48514d30408dc36cc16693b64bce9ef4&",
     "color": "black",
-    "price": 100
+    "price": 100,
+    "id":20033
 },
 
 
@@ -129,7 +135,9 @@
     "storage": 64,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165019401876152453/FitBit_Luxe_Fitness.jpg?ex=654553de&is=6532dede&hm=d2a28dd648e633a67145f8f4116eaac33163c1667c0ddfcccfa017cd6d52e358&",
     "color": "black",
-    "price": 100
+    "price": 100,
+    "id":1200
+
 },
 
 
@@ -140,7 +148,8 @@
     "storage": 64,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165019401876152453/FitBit_Luxe_Fitness.jpg?ex=654553de&is=6532dede&hm=d2a28dd648e633a67145f8f4116eaac33163c1667c0ddfcccfa017cd6d52e358&",
     "color": "black",
-    "price": 100
+    "price": 100,
+    "id":1400
 }
 
 

@@ -65,19 +65,24 @@ export default function Home() {
           <div className="CardsBelow">
           
             <div className="bigcard">
+            <Link href="/phones/accessories">
+
               <h2>Accessories</h2>
               <button>View All</button>
               <div className="iPhoneImage">
                 <Image zoom height={243} src={google}></Image>
               </div>
-              
+              </Link>
             </div>
             <div className="bigcard">
+            <Link href="/phones/tablet">
+
               <h2>Tablets</h2>
               <button>View All</button>
               <div className="iPhoneImage">
                 <Image zoom height={243} src={google}></Image>
               </div>
+              </Link>
             </div>
           </div>
         </div>

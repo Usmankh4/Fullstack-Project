@@ -13,6 +13,7 @@ export default function Page({ params }) {
       <h1>{phone.name}</h1>
       <img src={phone.thumbnail} alt={phone.name} />
       <p>Price: ${phone.price}</p>
+      
     
     </div>
   );
