@@ -542,14 +542,23 @@ color: #222;
 .productScreen .phoneInformation {
   display: flex;
   flex-direction: column;
-  
-  
+  column-gap: 0px;
+  padding: 0rem;
 }
 .productScreen .phoneInformation svg { 
   width: 60px;
+  height: 50px;
 }
 
 .productScreen .phoneInformation h1{
   font-size: 30px;
   align-self: top;
+}
+
+.productScreen .phoneInformation p{
+  align-self: top;
+  word-wrap: inherit;
+  overflow: hidden;
+  width: 550px;
+
 }
