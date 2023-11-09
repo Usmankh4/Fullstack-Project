@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Header() {
 
   return (
-    <div>
+    
 
       <div className="header">
 
@@ -54,7 +54,7 @@ export default function Header() {
 
      
       
-    </div>
+    
   );
 }
 
