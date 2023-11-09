@@ -10,7 +10,8 @@ export default function Repair() {
     <div>
       <Header></Header>
       <div className="pageAfterHeader">
-        <h3> This is the repair page </h3>
+        <div className="RepairHeader">
+        <h3> Please select your phone brand that needs repairing from the list below! </h3>
         <div className="RepairWrapper">
           <div className="phones-grid">
             {Repairphones.map((phone) => (
@@ -24,6 +25,7 @@ export default function Repair() {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </div>
       <Footer></Footer>

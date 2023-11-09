@@ -19,6 +19,14 @@ export default function Home() {
         <div className="heroBanner">
           <div className="repairText">
             <h2>Repair Is Our Specialty</h2>
+            <div className="divWrapper">
+            <button className="buttonOne"> Shop</button>
+            
+            <div className="wrapperTwo">
+            <button className="buttonTwo"> Repair</button>
+            </div>
+            </div>
+
           </div>
           <div className="heroImage">
             <Image src={BannerImage}></Image>

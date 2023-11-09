@@ -86,10 +86,10 @@ function Footer() {
            <ul>
              
              <li className="link">
-               <Link href="/phones/iphone">   Mississauga: 905 232 7771</Link>
+               <Link href="/contactus">   Mississauga: 905 232 7771</Link>
              </li>
              <li className="link">
-               <Link href="/phones/samsung">zainwireless@gmail.com</Link>
+               <Link href="/contactus">zainwireless@gmail.com</Link>
              </li>
              <li className="link">
                <Link href="/contactus">3415 Dixie Rd, Mississauga, ON</Link>
