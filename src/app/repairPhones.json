@@ -1,8 +1,11 @@
 [
     {
         "name": "Apple",
-        "image": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+        "image": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&",
+        "id": 11111
+    
     },
+
     {
         "name": "Samsung",
         "image": "https://cdn.discordapp.com/attachments/902785227276050475/1170965343896879125/SamsungLogo.jpg?ex=655af575&is=65488075&hm=b1f1855b07286fc17fb9e5fc018a6ec752368bf86bf6099a4467824b1bd20af6&"
