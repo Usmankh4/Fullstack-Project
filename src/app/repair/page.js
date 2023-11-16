@@ -21,11 +21,12 @@ export default function Repair() {
                 </div>
                 <h4>{phone.name}</h4>
                 <p>Get your phone fixed today. Check out our price list now!</p>
-            
                 
-                <button>LEARN MORE</button>
-                  
-
+             
+        
+                <Link href={`/repair/${phone.name}`}>
+                  <button>LEARN MORE</button>
+                </Link> 
               </div>
             ))}
           </div>

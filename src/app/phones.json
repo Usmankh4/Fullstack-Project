@@ -8,7 +8,8 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "red",
     "price": 148.48,
-    "id": 2238
+    "id": 2238,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
 
 
 },
@@ -19,7 +20,9 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164410525044719718/iPhone15.jpg?ex=65431cce&is=6530a7ce&hm=3e9a9041918d14fc18ad56bcd1142f89659bbd39272e7c988c4db2827a3c93c3&",
     "color": "black",
     "price": 200,
-    "id":2237
+    "id":2237,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+
 
 
 },
@@ -30,7 +33,8 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164411140860817508/iPhone15ProMax.jpg?ex=65431d61&is=6530a861&hm=1cbbc1e0a5b6e117c57b2092834461a030ee3eab990aae36ec599fca84650a96&",
     "color": "black",
     "price": 200,
-    "id": 2236
+    "id": 2236,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
     
 
 
@@ -43,7 +47,8 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164411864575381564/iPhone15Plus.jpg?ex=65431e0e&is=6530a90e&hm=0a8d6a8409346d5a76f9fa3a935effffa96cf0624dc50628a3ac0c876c6d7d0f&",
     "color": "black",
     "price": 200,
-    "id": 2235
+    "id": 2235,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
 
 
 
@@ -56,7 +61,8 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164409611277832264/iPhone_14.jpg?ex=65431bf5&is=6530a6f5&hm=46c336bab02e5a6213c5fccd4b7b08d0e8e10fece1a31e7da3934a842cd81cdf&",
     "color": "black",
     "price": 200,
-    "id": 2234
+    "id": 2234,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
 
 
 },
@@ -67,7 +73,8 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164427190369255494/iPhone14Pro.jpg?ex=65432c54&is=6530b754&hm=3f150af8df637a96495d68a86f8e855854931f87f9180b9acdf757e0ab0b65cc&",
     "color": "black",
     "price": 200,
-    "id": 2233
+    "id": 2233,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
 
 
 
@@ -82,7 +89,8 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165010643854831726/SamsungGalaxyUltra23.jpg?ex=65454bb6&is=6532d6b6&hm=9c5bd448c3345cd9d97efad1d03d5a5fd38885bf18feebec6bf6262f870c08c2&",
     "color": "black",
     "price": 100,
-    "id": 2232
+    "id": 2232,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170965343896879125/SamsungLogo.jpg?ex=655af575&is=65488075&hm=b1f1855b07286fc17fb9e5fc018a6ec752368bf86bf6099a4467824b1bd20af6&"
 
 
 },
@@ -97,7 +105,8 @@
     "thumbnail": "https://fdn2.gsmarena.com/vv/pics/lg/lg-velvet-1.jpg",
     "color": "black",
     "price": 100,
-    "id":1400
+    "id":1400,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1171168324617510952/LG_Logo.png?ex=655bb27f&is=65493d7f&hm=2f41e83a6985e7f8b4850e7d7b5ea866028a4df7a84f3cdfaa635afceaf9b0bd&"
 
 
 
