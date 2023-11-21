@@ -1,11 +1,11 @@
 import iphone from "../image/15promax.jpg";
-import Header from "./header";
+import Header from "../components/header";
 import BannerImage from "../images/phone.png"
 import Image from "next/image";
 import samsung from "../image/samsungultra.jpg";
 import google from "../image/Pixel8.png";
 
-import Footer from "./footer";
+import Footer from "../components/footer";
 import Link from "next/link";
 
 export default function Home() {

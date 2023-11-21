@@ -1,5 +1,5 @@
 import phonesData from "../../../phones.json";
-import Header from "@/app/header";
+import Header from "@/components/header";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
