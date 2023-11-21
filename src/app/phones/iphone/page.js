@@ -4,18 +4,28 @@ import Footer from '@/app/footer';
 import phonesData from "../../phones.json";
 import Link from 'next/link';
 
+
+
 function Page() {
   const filteredPhones = [];
 
   for (let i = 0; i < phonesData.length; i++) {
     const phone = phonesData[i];
     if (phone.brand === "Apple") {
-      filteredPhones.push(phone);
+      if(phone.storage === 128 ){
+        filteredPhones.push(phone);
+      }
     }
   }
 
+
+
+  
+
+
   return (
     <div>
+      
       <div className="PhoneBackground">
       <Header />
       <div className="pageAfterHeader">
@@ -26,7 +36,9 @@ function Page() {
               {filteredPhones.map((phone) => (
                 <div className="PhoneCard">
                   <h4>{phone.name}</h4>
-                  <Link href={`/products/${phone.id}`}>
+                  
+
+                  <Link href={`/products/${phone.name}`}>
 
                   <div className="PhoneImage">
                     <img src={phone.thumbnail} />

@@ -6,10 +6,37 @@
     "brand": "Apple",
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
-    "color": "red",
-    "price": 148.48,
+    "color": "Black",
+    "price": 1100,
     "id": 2238,
     "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+        
+
+
+},
+{
+    "name": "iPhone 15 Pro",
+    "brand": "Apple",
+    "storage": 256,
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
+    "color": "Blue",
+    "price": 1290,
+    "id": 2238,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+      
+
+
+},
+{
+    "name": "iPhone 15 Pro",
+    "brand": "Apple",
+    "storage": 256,
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
+    "color": "red",
+    "price": 1100,
+    "id": 2238,
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+        
 
 
 },
@@ -22,6 +49,7 @@
     "price": 200,
     "id":2237,
     "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+  
 
 
 
@@ -34,7 +62,9 @@
     "color": "black",
     "price": 200,
     "id": 2236,
-    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&",
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]    
     
 
 
@@ -48,7 +78,9 @@
     "color": "black",
     "price": 200,
     "id": 2235,
-    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&",
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]    
 
 
 
@@ -62,7 +94,9 @@
     "color": "black",
     "price": 200,
     "id": 2234,
-    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&",
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]    
 
 
 },
@@ -74,7 +108,9 @@
     "color": "black",
     "price": 200,
     "id": 2233,
-    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&",
+    "sizes": [128, 256, 512],
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"]    
 
 
 
@@ -90,7 +126,9 @@
     "color": "black",
     "price": 100,
     "id": 2232,
-    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170965343896879125/SamsungLogo.jpg?ex=655af575&is=65488075&hm=b1f1855b07286fc17fb9e5fc018a6ec752368bf86bf6099a4467824b1bd20af6&"
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170965343896879125/SamsungLogo.jpg?ex=655af575&is=65488075&hm=b1f1855b07286fc17fb9e5fc018a6ec752368bf86bf6099a4467824b1bd20af6&",
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]    
 
 
 },
@@ -106,7 +144,9 @@
     "color": "black",
     "price": 100,
     "id":1400,
-    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1171168324617510952/LG_Logo.png?ex=655bb27f&is=65493d7f&hm=2f41e83a6985e7f8b4850e7d7b5ea866028a4df7a84f3cdfaa635afceaf9b0bd&"
+    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1171168324617510952/LG_Logo.png?ex=655bb27f&is=65493d7f&hm=2f41e83a6985e7f8b4850e7d7b5ea866028a4df7a84f3cdfaa635afceaf9b0bd&",
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]    
 
 
 
@@ -121,7 +161,11 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165017451554144326/Glass.jpg?ex=6545520d&is=6532dd0d&hm=e300bd663db65fc823ecae17b525059494b95ff598eea427e6ddb10ea050264d&",
     "color": "black",
     "price": 100,
-    "id":14000
+    "id":14000,
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+        "sizes": [128, 256, 512]    
+    
+
 
 },
 
@@ -133,19 +177,9 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165006522179403776/SamsungWallAdapter.jpg?ex=654547df&is=6532d2df&hm=88faad7ef59c607928fdb63d369cfbfc48514d30408dc36cc16693b64bce9ef4&",
     "color": "black",
     "price": 100,
-    "id":20033
-},
-
-
-
-{
-    "name": "Fitbit Luxe Fitness Tracker with 24/7 Heart Rate & Sleep",
-    "brand": "Accessories",
-    "storage": 64,
-    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165019401876152453/FitBit_Luxe_Fitness.jpg?ex=654553de&is=6532dede&hm=d2a28dd648e633a67145f8f4116eaac33163c1667c0ddfcccfa017cd6d52e358&",
-    "color": "black",
-    "price": 100,
-    "id":1200
+    "id":20033,
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]    
 
 },
 
@@ -158,7 +192,27 @@
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165019401876152453/FitBit_Luxe_Fitness.jpg?ex=654553de&is=6532dede&hm=d2a28dd648e633a67145f8f4116eaac33163c1667c0ddfcccfa017cd6d52e358&",
     "color": "black",
     "price": 100,
-    "id":1400
+    "id":1200,
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]    
+
+
+},
+
+
+
+{
+    "name": "Fitbit Luxe Fitness Tracker with 24/7 Heart Rate & Sleep",
+    "brand": "Accessories",
+    "storage": 64,
+    "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1165019401876152453/FitBit_Luxe_Fitness.jpg?ex=654553de&is=6532dede&hm=d2a28dd648e633a67145f8f4116eaac33163c1667c0ddfcccfa017cd6d52e358&",
+    "color": "black",
+    "price": 100,
+    "id":1400,
+    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+    "sizes": [128, 256, 512]   
+
+    
 }
 
 

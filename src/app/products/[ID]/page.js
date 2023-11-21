@@ -1,18 +1,24 @@
 import phonesData from "../../phones.json";
 import Header from "@/app/header";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 export default function Page({ params }) {
+  const allPhones = []; 
   
- 
- const phoneId = parseInt(params.ID, 10);
- const phone = phonesData.find(p => p.id === phoneId);
-
+  const phoneId = parseInt(params.ID, 10);
+  const phone = phonesData.find(p => p.name === params.name);
+  const phoneName = new String(params.ID).replaceAll("%20"," ");
+  console.log(phoneName);
+  
   if (!phone) return <div>Loading or Not Found...</div>;
-
+      
   return (
+    
     <div className="container">
-      <Header/>
+      <Header />
       <div className="productScreen">
-        
+
         <div className="phoneDisplay">
           <img src={phone.thumbnail} alt={phone.name} />
         </div>
@@ -20,30 +26,38 @@ export default function Page({ params }) {
         <div className="phoneInformation">
           <div>
             <h1>{phone.name}</h1>
-            <h2>Price: ${phone.price}</h2>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="yellow" >
-                <path   d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="yellow">
-                <path   d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="yellow">
-                <path   d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="yellow">
-                <path   d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="black">
-              <path   d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z"/>     
-              </svg>
+            <h2>${phone.price}</h2>
+            <div className="ratingStars">
+              {[...Array(6)].map((_, i) => (
+                <FontAwesomeIcon key={i} icon={faStar} style={{ color: "#fdbc00", fontSize: "16px" }} />
+              ))}
             </div>
 
-            <button className="buyNowButton">Buy Now</button> 
+            <div className="optionsContainer">
+              <div className="dropdownContainer">
+                <div className="option">
+                  <label htmlFor="colorSelect">Color:</label>
+                  
+                </div>
+
+                <div className="option">
+                  <label htmlFor="sizeSelect">Size:</label>
+                  
+                </div>
+
+                <div className="option">
+                  <label htmlFor="quantitySelect">Quantity:</label>
+                  
+                </div>
+              </div>
+
+              <div className="buyButton">
+                <button className="buyNowButton">Buy Now</button>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
