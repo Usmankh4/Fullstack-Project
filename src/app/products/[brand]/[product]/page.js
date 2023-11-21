@@ -1,15 +1,15 @@
-import phonesData from "../../phones.json";
+import phonesData from "../../../phones.json";
 import Header from "@/app/header";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Page({ params }) {
-  const allPhones = []; 
-  
-  const phoneId = parseInt(params.ID, 10);
-  const phone = phonesData.find(p => p.name === params.name);
-  const phoneName = new String(params.ID).replaceAll("%20"," ");
-  console.log(phoneName);
+  const productName = decodeURIComponent(params.product);
+
+  // Find the phone based on the brand and product name
+  const phone = phonesData.find(p => 
+    p.brand === params.brand && p.name === productName
+  );
   
   if (!phone) return <div>Loading or Not Found...</div>;
       

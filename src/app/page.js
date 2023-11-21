@@ -1,6 +1,6 @@
 import iphone from "../image/15promax.jpg";
 import Header from "./header";
-import BannerImage from "./images/phone.png";
+import BannerImage from "../images/phone.png"
 import Image from "next/image";
 import samsung from "../image/samsungultra.jpg";
 import google from "../image/Pixel8.png";
@@ -24,12 +24,12 @@ export default function Home() {
                 <h1 className='text-wrapper'>REPAIR IS OUR SPECIALTY</h1>
                 <div className='frame-2'>
                   <div className='div-wrapper'>
-                    <Link href= "/phones/accessories">
+                    <Link href= "/products/accessories">
                     <button className='button-wrapper-2'>Shop</button>
                     </Link>
                   </div>
                   <div className='frame-3'>
-                    <Link href="/phones/repair">
+                    <Link href="/products/repair">
                     <button className='button-wrapper-3'>Repair</button>
                     </Link>
                   </div>
@@ -46,7 +46,7 @@ export default function Home() {
           <div className="cardLayout">
             
             <div className="iPhoneCard">
-              <Link href="/phones/iphone">
+              <Link href="/products/Apple">
               <h2>Apple</h2>
               <button>View All</button>
               <div className="iPhoneImage">
@@ -56,7 +56,7 @@ export default function Home() {
             </div>
 
             <div className="iPhoneCard">
-              <Link href="/phones/samsung">
+              <Link href="/products/samsung">
               <h2>Samsung</h2>
               <button>View All</button>
               <div className="iPhoneImage">
@@ -67,7 +67,7 @@ export default function Home() {
             </div>
 
             <div className="iPhoneCard">
-            <Link href="/phones/android">
+            <Link href="/products/android">
               <h2>Android</h2>
               <button>View All</button>
               <div className="iPhoneImage">
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="CardsBelow">
           
             <div className="bigcard">
-            <Link href="/phones/accessories">
+            <Link href="/products/accessories">
 
               <h2>Accessories</h2>
               <button>View All</button>
@@ -92,7 +92,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="bigcard">
-            <Link href="/phones/tablet">
+            <Link href="/products/tablet">
 
               <h2>Tablets</h2>
               <button>View All</button>
