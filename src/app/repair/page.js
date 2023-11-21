@@ -1,9 +1,9 @@
-import Footer from '../../footer';
-import '../../globals.css';
-import Header from '../../header';
+import Footer from '@/components/footer';
+import '../globals.css';
+import Header from '@/components/header';
 import Image from "next/image";
 import Link from 'next/link';
-import Repairphones from "../../repairPhones.json";
+import Repairphones from "../repairPhones.json";
 export default function Repair() {
 
   return (

@@ -38,7 +38,7 @@ export default function Header() {
           <li className="link"><Link href="/products/android">Android</Link></li>
           <li className="link"><Link href="/products/tablet">Tablet</Link></li>
           <li className="link"><Link href="/products/accessories">Accessories</Link></li>
-          <li className="link"><Link href="/products/repair">Repair</Link></li>
+          <li className="link"><Link href="/repair">Repair</Link></li>
           <li className="link"><Link href="/contactus">Contact Us</Link></li>
           
       </ul>

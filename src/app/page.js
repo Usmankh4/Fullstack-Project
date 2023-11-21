@@ -29,7 +29,7 @@ export default function Home() {
                     </Link>
                   </div>
                   <div className='frame-3'>
-                    <Link href="/products/repair">
+                    <Link href="/repair">
                     <button className='button-wrapper-3'>Repair</button>
                     </Link>
                   </div>
