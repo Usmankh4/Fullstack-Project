@@ -12,7 +12,7 @@ export default function Page({ params }) {
     <div className="container">
       <Header/>
       
-         <h1>{repairBrand.name}</h1>
+         <h1>{repairBrand.model}</h1>
 
 
 
