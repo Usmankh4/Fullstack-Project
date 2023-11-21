@@ -2,7 +2,7 @@ import '../../globals.css';
 import Header from '@/app/header';
 import Footer from '@/app/footer';
 import phonesData from "../../phones.json";
-
+import Link from 'next/link';
 function Page() {
   const filteredPhones = [];
 
@@ -24,6 +24,9 @@ function Page() {
             <div className="PhoneLayout">
               {filteredPhones.map((phone) => (
                 <div className="PhoneCard">
+                  <Link href={`/products/${phone.id}`}>
+                    
+
                   <h4>{phone.name}</h4>
                   <div className="PhoneImage">
                     <img src={phone.thumbnail} />
@@ -32,6 +35,8 @@ function Page() {
                   <div className="PhonePrice">
                     <h4> On sale from ${phone.price}</h4>
                 </div>
+                
+                </Link>
                 </div>
               ))}
             </div>

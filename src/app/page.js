@@ -15,10 +15,27 @@ export default function Home() {
     <div>
       
       <Header />
+      <div>
       <div className="pageAfterHeader">
         <div className="heroBanner">
-          <div className="repairText">
-            <h2>Repair Is Our Specialty</h2>
+          <div className="box">
+            <div className="frame-wrapper">
+            <div className='div'>
+                <h1 className='text-wrapper'>REPAIR IS OUR SPECIALTY</h1>
+                <div className='frame-2'>
+                  <div className='div-wrapper'>
+                    <Link href= "/phones/accessories">
+                    <button className='button-wrapper-2'>Shop</button>
+                    </Link>
+                  </div>
+                  <div className='frame-3'>
+                    <Link href="/phones/repair">
+                    <button className='button-wrapper-3'>Repair</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="heroImage">
             <Image src={BannerImage}></Image>
@@ -65,24 +82,30 @@ export default function Home() {
           <div className="CardsBelow">
           
             <div className="bigcard">
+            <Link href="/phones/accessories">
+
               <h2>Accessories</h2>
               <button>View All</button>
               <div className="iPhoneImage">
                 <Image zoom height={243} src={google}></Image>
               </div>
-              
+              </Link>
             </div>
             <div className="bigcard">
+            <Link href="/phones/tablet">
+
               <h2>Tablets</h2>
               <button>View All</button>
               <div className="iPhoneImage">
                 <Image zoom height={243} src={google}></Image>
               </div>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       <Footer />
+    </div>
     </div>
   );
 }
