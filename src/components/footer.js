@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./globals.css";
+import "../app/globals.css"
 
-import phones from "./phones.json";
+
 
 import Link from "next/link";
 
