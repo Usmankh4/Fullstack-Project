@@ -1,6 +1,6 @@
 import repairData from "../../repairBrand.json";
 
-import Header from "@/app/header";
+import Header from "@/components/header";
 export default function Page({ params }) {
   
   const repairBrand = repairData.find(p => p.name === params.name);

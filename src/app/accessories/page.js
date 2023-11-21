@@ -1,6 +1,6 @@
 import '../../globals.css';
-import Header from '@/app/header';
-import Footer from '@/app/footer';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import phonesData from "../../phones.json";
 import Link from 'next/link';
 function Page() {
