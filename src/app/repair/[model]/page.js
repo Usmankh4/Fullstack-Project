@@ -3,7 +3,7 @@ import repairData from "../../repairBrand.json";
 import Header from "@/components/header";
 export default function Page({ params }) {
   
-  const repairBrand = repairData.find(p => p.name === params.name);
+  const repairBrand = repairData.find(p => p.model === params.model);
 
 
   if (!repairBrand) return <div>Loading or Not Found...</div>;
@@ -12,7 +12,7 @@ export default function Page({ params }) {
     <div className="container">
       <Header/>
       
-         <h1>{repairBrand.name}</h1>
+         <h1>{repairBrand.model}</h1>
 
 
 
