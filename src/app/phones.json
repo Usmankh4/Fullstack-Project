@@ -7,7 +7,7 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "Black",
-    "price": 1100,
+    "price": 999,
     "id": 2238,
     "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
         
@@ -20,7 +20,7 @@
     "storage": 256,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "Blue",
-    "price": 1290,
+    "price": 1449,
     "id": 2238,
     "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
       
@@ -33,7 +33,7 @@
     "storage": 256,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1161742223449264179/iPhone15Pro.jpg?ex=653967c2&is=6526f2c2&hm=4888d9e62ab2b6eb0497421dec635b2ca202165adf6946b1435dd425da4c8241&",
     "color": "red",
-    "price": 1100,
+    "price": 1449,
     "id": 2238,
     "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
         
@@ -46,7 +46,7 @@
     "storage": 128,
     "thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1164410525044719718/iPhone15.jpg?ex=65431cce&is=6530a7ce&hm=3e9a9041918d14fc18ad56bcd1142f89659bbd39272e7c988c4db2827a3c93c3&",
     "color": "black",
-    "price": 200,
+    "price": 1129 ,
     "id":2237,
     "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1170963789345198130/AppleLogo.jpg?ex=655af402&is=65487f02&hm=5e521bbc5e8767af15bb19a1717dc45de567f603ecbbd55fd6e8296345e2da60&"
   
@@ -135,22 +135,7 @@
 
 
 
-{
 
-    "name": "LG Velvet",
-    "brand": "Android",
-    "storage": 64,
-    "thumbnail": "https://fdn2.gsmarena.com/vv/pics/lg/lg-velvet-1.jpg",
-    "color": "black",
-    "price": 100,
-    "id":1400,
-    "brandImage": "https://cdn.discordapp.com/attachments/902785227276050475/1171168324617510952/LG_Logo.png?ex=655bb27f&is=65493d7f&hm=2f41e83a6985e7f8b4850e7d7b5ea866028a4df7a84f3cdfaa635afceaf9b0bd&",
-    "colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
-    "sizes": [128, 256, 512]    
-
-
-
-},
 
 
 
@@ -213,8 +198,19 @@
     "sizes": [128, 256, 512]   
 
     
-}
+},
+{
+"name": "Type C to Lightning Data Cable for Apple (PD Fast Charging) ",
+"brand": "Accessories",
+"storage": 64,
+"thumbnail": "https://cdn.discordapp.com/attachments/902785227276050475/1177116082197241886/USB_Lighting_Cable.jpg?ex=657155c7&is=655ee0c7&hm=17c522d05be7af06c4e1308ced4dc0ccf942c025f69762a96c252234acb2e563&",
+"color": "white",
+"price": 15,
+"id":1400,
+"colors":[ "Deep Purple", "Silver", "Gold", "Space Black"],
+"sizes": [128, 256, 512]  
 
+}
 
 
 
