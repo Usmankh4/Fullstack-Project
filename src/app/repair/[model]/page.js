@@ -27,10 +27,7 @@ export default function Page({ params }) {
               </div>
               <h4>{phone.name}</h4>
               <p>Get your phone fixed today. Check out our price list now!</p>
-              
-           
-      
-              <Link href={`/repair/${phone.model}`}>
+              <Link href={`/repair/${phone.model}/repairPage`}>
                 <button>LEARN MORE</button>
               </Link> 
             </div>
