@@ -544,12 +544,13 @@ color: #222;
 .phones-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 70px;
+  
 }
 
 .phone-card {
   border: 1px solid #e0e0e0;
-  padding: 40px;
+  padding: 50px;
   text-align: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -559,8 +560,24 @@ color: #222;
   justify-content: space-between; 
 }
 
+.phonePicturewrapper {
+  width: 100%; /* adjust as needed */
+  height: auto; /* adjust as needed */
+  object-fit: cover; /* this will ensure the image covers the wrapper nicely */
+  overflow: hidden; /* this will clip the image to the wrapper's dimensions */
+}
+.phonePicture img{
+  width: 130px;
+  padding: 25px;
+}
+
+
 .phone-card .phonePicture {
   margin-bottom: 20px; 
+  
+}
+.phonePicture img {
+  height: 150px; /* Adjust this value to your desired height */
 }
 
 .phone-card h4 {
@@ -574,19 +591,25 @@ color: #222;
 
 .phone-card button {
   margin-top: 20px; 
+  width: 100%;
   padding: 12px 20px;
-  background-color: #fff;
-  color: grey;
+  background: black;
+  color: #ffffff;
   border: 1px solid;
+  border-radius: 3px;
   cursor: pointer;
+  text-transform: uppercase;
   transition: color 0.3s ease;
   text-transform: uppercase;
   font-weight: bold;
   align-self: center; 
+  line-height: 25px;
+  transform: scale(1.05); /* slight zoom on hover */
+  opacity: 0.9; /* slight opacity change on hover */
 }
 
 .phone-card button:hover {
-  color: black;
+  color: grey;
 }
 
 
@@ -611,7 +634,6 @@ color: #222;
   width: 100%;
   gap: 100px;
   margin-top: 75px;
-
 }
 
 

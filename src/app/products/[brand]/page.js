@@ -10,8 +10,7 @@ export default function BrandPage() {
   const { brand } = useParams(); // Retrieve the brand parameter
 
   // Filter phones based on the brand parameter
-  const filteredPhones = phonesData.filter(phone => 
-    phone.brand.toLowerCase() === brand.toLowerCase()
+  const filteredPhones = phonesData.filter(phone => phone.brand.toLowerCase() === brand.toLowerCase()
   );
 
   return (

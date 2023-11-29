@@ -1,20 +1,20 @@
 [
-
     {
-    
-    "model": "Apple"
+        "model": "Apple",
+        "name": "iPhone 14",
+        "image": "https://cdn.discordapp.com/attachments/902785227276050475/1164409611277832264/iPhone_14.jpg?ex=65431bf5&is=6530a6f5&hm=46c336bab02e5a6213c5fccd4b7b08d0e8e10fece1a31e7da3934a842cd81cdf&"
+        
     },
-    
     {
-    
-    "model": "Samsung"
-    
+        "model": "Apple",
+        "name": "iPhone 15"
     },
-    
     {
-    
-    "model": "Android"
-    
+        "model": "Samsung",
+        "name": "SamsungGalaxyUltra23"
+    },
+    {
+        "model": "Android"
+        
     }
-    
-    ]
+]
