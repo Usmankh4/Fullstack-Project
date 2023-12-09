@@ -15,13 +15,9 @@ import "typeface-rubik";
 import "@fontsource/ibm-plex-mono";
 
 // TODO: Replace with your config
-import { firebaseConfig } from "@/firebase";
+import { firebaseConfig } from "../../firebase";
 
-const locales = {
-    "en-US": "English (United States)",
-    "es-ES": "Spanish (Spain)",
-    "de-DE": "German"
-};
+
 
 type Product = {
     name: string;

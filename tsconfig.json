@@ -32,6 +32,7 @@
       }
     ]
   },
+  "jsx": "react",
   "include": [
     ".eslintrc.cjs",
     "next-env.d.ts",

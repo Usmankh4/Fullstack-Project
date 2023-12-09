@@ -1,5 +1,7 @@
-import CMS from "@/app/cms/CMS";
+import React from 'react';
+import CMS from "../CMS";
 
 export default function Home() {
-    return <CMS/>;
+    return <CMS />;
+
 }
