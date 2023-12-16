@@ -1,7 +1,8 @@
-import React from 'react';
-import CMS from "../CMS";
+import dynamic from 'next/dynamic'
 
+const CMS = dynamic(async () => await import('../CMS'), {
+ ssr: false,
+})
 export default function Home() {
-    return <CMS />;
-
+    return <CMS/>;
 }

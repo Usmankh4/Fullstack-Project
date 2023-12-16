@@ -3,21 +3,21 @@
 import React, { useCallback } from "react";
 
 import { User as FirebaseUser } from "firebase/auth";
-import {
-    Authenticator,
-    buildCollection,
-    buildProperty,
-    EntityReference,
-    FirebaseCMSApp
-} from "firecms";
-
+import { buildCollection, buildProperty, EntityReference, } from "firecms";
+import { Authenticator,FirebaseCMSApp } from "firecms";
 import "typeface-rubik";
 import "@fontsource/ibm-plex-mono";
+import 'firebase/storage';
+
 
 // TODO: Replace with your config
-import { firebaseConfig } from "../../firebase";
+import { firebaseConfig } from "@/firebase";
 
-
+const locales = {
+    "en-US": "English (United States)",
+    "es-ES": "Spanish (Spain)",
+    "de-DE": "German"
+};
 
 type Product = {
     name: string;
@@ -36,7 +36,24 @@ type Product = {
     expires_on: Date
 }
 
-
+const localeCollection = buildCollection({
+    path: "locale",
+    customId: locales,
+    name: "Locales",
+    singularName: "Locales",
+    properties: {
+        name: {
+            name: "Title",
+            validation: { required: true },
+            dataType: "string"
+        },
+        selectable: {
+            name: "Selectable",
+            description: "Is this locale selectable",
+            dataType: "boolean"
+        }
+    }
+});
 
 const productsCollection = buildCollection<Product>({
     name: "Products",
@@ -48,7 +65,9 @@ const productsCollection = buildCollection<Product>({
         // we have created the roles object in the navigation builder
         delete: false
     }),
-    
+    subcollections: [
+        localeCollection
+    ],
     properties: {
         name: {
             name: "Name",
@@ -82,8 +101,8 @@ const productsCollection = buildCollection<Product>({
             dataType: "boolean",
             columnWidth: 100,
             disabled: (
-                values.status === "public"
-                    ? false
+                    values.status === "public"
+                        ? false
                     : {
                         clearOnDisabled: true,
                         disabledMessage: "Status must be public in order to enable this the published flag"
