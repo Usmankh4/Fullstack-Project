@@ -22,14 +22,17 @@ const locales = {
 type Product = {
   name: string;
   price: number;
+  category: 'Phone' | 'Accessory';
   description: string;
-  image: string;
-  hasSizes: boolean;
+  hasWarranty: boolean;
+  mainImage: string;
+  optionalImages: string[];
   quantity: number; // For products without sizes
-  sizes?: { [size: string]: number }; // For products with sizes
+  hasStorage?: boolean;
+  colours?: string [];
   tags: string[];
 };
-
+// 
 const ProductsCollection = buildCollection<Product>({
     name: "Products",
     singularName: "Product",
@@ -54,7 +57,9 @@ const ProductsCollection = buildCollection<Product>({
         description: "A detailed description of the product.",
         validation: { required: true },
       }),
-      image: buildProperty({
+
+
+      mainImage: buildProperty({
         dataType: "string",
         title: "Image",
         description: "Upload an image for the product.",
@@ -66,7 +71,24 @@ const ProductsCollection = buildCollection<Product>({
             cacheControl: "max-age=1000000",
           },
         },
+        validation: { required: true },
       }),
+      optionalImages:buildProperty({
+        dataType: "array",
+        name: "Images",
+        of: {
+            dataType: "string",
+            storage: {
+              storagePath: "images/products",
+              acceptedFiles: ["image/png", "image/jpg", "image/jpeg"],
+              maxSize: 1920 * 1080,
+              metadata: {
+                cacheControl: "max-age=1000000",
+              },
+            },
+        },
+        description: "This fields allows uploading multiple images at once"
+    }),
       tags: buildProperty({
         dataType: "array",
         name: "Tags",
@@ -76,12 +98,16 @@ const ProductsCollection = buildCollection<Product>({
           dataType: "string",
         },
       }),
-  
-      hasSizes: buildProperty({
-        dataType: "boolean",
-        name: "Has Sizes",
-        description: "Does this product come in different sizes?",
+
+      
+
+      colours: buildProperty({
+        dataType: "string",
+        name: "Colours",
+        description: "Available colours for phones",
       }),
+  
+    
   
       quantity: buildProperty(({ values }) => ({
         dataType: "number",
@@ -94,35 +120,21 @@ const ProductsCollection = buildCollection<Product>({
         validation: { required: !values.hasSizes, min: 0 },
       })),
   
-      sizes: buildProperty(({ values }) => ({
-        dataType: "map",
-        name: "Sizes",
-        description: "Quantities for each size.",
-        properties: {
-          S: {
-            dataType: "number",
-            name: "Small",
-            validation: { required: false, min: 0 },
-          },
-          M: {
-            dataType: "number",
-            name: "Medium",
-            validation: { required: false, min: 0 },
-          },
-          L: {
-            dataType: "number",
-            name: "Large",
-            validation: { required: false, min: 0 },
-          },
-        },
-        disabled: !values.hasSizes && {
-          clearOnDisabled: true,
-          disabledMessage: "Sizes are only available if 'Has Sizes' is selected.",
-          hidden: true,
-        },
-  
-        validation: values.hasSizes ? { required: true } : undefined,
-      })),
+     
+      category:{
+        dataType:"string",
+        name:"Category",
+      },
+      hasStorage: buildProperty({
+        dataType: "boolean",
+        name: "Storage Options ",
+        description: "Storage options for phones ",
+      }),
+      hasWarranty:{
+        dataType:"boolean",
+        name:"Has Warrenty"
+      }
+
     },
   });
 
