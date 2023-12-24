@@ -105,6 +105,20 @@ const ProductsCollection = buildCollection<Product>({
         dataType: "string",
         name: "Colours",
         description: "Available colours for phones",
+        enumValues: {
+            SpaceBlack: "SpaceBlack",
+            SpaceGrey: "SpaceGrey",
+            Blue: "Blue",
+            Pink: "Pink",
+            Yellow: "Yellow",
+            Green: "Green",
+            Black: "Black",
+
+
+            
+
+
+        }
       }),
   
     
