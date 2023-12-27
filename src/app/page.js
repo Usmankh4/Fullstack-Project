@@ -56,7 +56,7 @@ export default function Home() {
             </div>
 
             <div className="iPhoneCard">
-              <Link href="/products/samsung">
+              <Link href="/products/Samsung">
               <h2>Samsung</h2>
               <button>View All</button>
               <div className="iPhoneImage">

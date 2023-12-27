@@ -265,8 +265,8 @@ ul {
   
 }
 .iPhoneImage{
-  margin-top: 34px;
-  
+  margin-top: 2px;
+  object-fit: contain;
 }
 
 .iPhoneCard button{

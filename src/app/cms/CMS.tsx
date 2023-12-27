@@ -21,6 +21,7 @@ const locales = {
 type Product = {
   name: string;
   price: number;
+  brand: string;
   category: "Phone" | "Accessory";
   description: string;
   hasWarranty: boolean;
@@ -127,6 +128,12 @@ const ProductsCollection = buildCollection<Product>({
       dataType: "string",
       name: "Category",
     },
+
+    brand: {
+      dataType: "string",
+      name: "Brand",
+    },
+
     hasStorage: buildProperty({
       dataType: "boolean",
       name: "Storage Options ",
