@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from rest_framework.decorators import action
-import stripe
 from django.http import JsonResponse
 from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
