@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation'; 
 import { z } from 'zod';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Footer from "../../../../components/footer"
+import Header from "../../../../components/header";
 
 
 const CartItemSchema = z.object({
@@ -36,7 +36,7 @@ export default function ProductPage() {
   const [finalPrice, setFinalPrice] = useState(0);
   const [imageURL, setImageURL] = useState(''); 
   const router = useRouter();
-  console.log(phone);
+  
 
 
   useEffect(() => {
@@ -47,8 +47,9 @@ export default function ProductPage() {
         setPhone(phoneData);
 
         if (phoneData.colors.length > 0) {
-          setSelectedColor(phoneData.colors[0].name);
-          const defaultImage = phoneData.color_images.find(image => image.color.name === phoneData.colors[0].name);
+          const defaultColor = phoneData.colors[0];
+          setSelectedColor(defaultColor.name);
+          const defaultImage = phoneData.color_images.find(image => image.color_name === defaultColor.name);
           setImageURL(defaultImage ? defaultImage.image : phoneData.image);
         }
 
@@ -112,14 +113,15 @@ export default function ProductPage() {
   }
 
   const handleColorChange = (event) => {
-    const newColorId = event.target.value;
-    setSelectedColor(newColorId);
-
+    const newColorName = event.target.value;
+    setSelectedColor(newColorName);
     
-    const colorImageEntry = phone.color_images.find(image => image.color === parseInt(newColorId));
+    const colorImageEntry = phone.color_images.find(imageEntry => imageEntry.color_name === newColorName);
     const newImageURL = colorImageEntry ? colorImageEntry.image : phone.image;
     setImageURL(newImageURL);
   };
+  
+  
 
 
   const handleStorageChange = (event) => {
@@ -147,11 +149,12 @@ export default function ProductPage() {
   <div className="SelectionsContainer">
     <div className="ColourAndStorage">
       <div className="ColourSelection">
-        <select value={selectedColor} onChange={handleColorChange}>
-          {phone.colors.map((color) => (
-            <option key={color.id} value={color.id}>{color.name}</option>
-          ))}
-        </select>
+      <select value={selectedColor} onChange={handleColorChange}>
+        {phone.colors.map((color) => (
+          <option key={color.id} value={color.name}>{color.name}</option>
+           ))}
+            </select>
+
       </div>
       <div className="StorageSelection">
         <select value={selectedStorage} onChange={handleStorageChange}>

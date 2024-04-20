@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Footer from "../../../components/footer";
+import Header from "../../../components//header";
 import '../../globals.css';
 
 export default function BrandPage() {

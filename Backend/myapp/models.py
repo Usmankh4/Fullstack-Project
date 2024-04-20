@@ -31,8 +31,6 @@ class RepairService(models.Model):
         return f"{self.phone_model.brand.name} {self.phone_model.name} - {self.service_type}"
 
 
-
-
 class Product(models.Model):
     product_type= models.CharField(max_length=15, null=True, blank=True)
     user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
@@ -62,25 +60,21 @@ class Accessories(models.Model):
     def __str__(self):
         return self.name
     
-
-
-
 class Color(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
-    
 class ProductColorImage(models.Model):
     product = models.ForeignKey(Product, related_name='color_images', on_delete=models.CASCADE)
-    color = models.ForeignKey(Color, related_name='product_images', on_delete=models.CASCADE)
+    color_name = models.CharField(max_length=100, null=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.product.name} - {self.color.name}"
+        return f"{self.product.name} - {self.color_name}"
 
-    
+
 class StorageOption(models.Model):
     product = models.ForeignKey(Product, related_name='storage_options', on_delete=models.CASCADE)
     storage_amount = models.CharField(max_length=50)  

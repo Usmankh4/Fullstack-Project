@@ -22,7 +22,7 @@ class RepairServiceSerializer(serializers.ModelSerializer):
 class ProductColorImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductColorImage
-        fields = ['color', 'image']
+        fields = ['color_name', 'image']
 
 class ProductSerializer(serializers.ModelSerializer):
     colors = ColorSerializer(many=True, read_only=True)
@@ -32,6 +32,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'name', 'image', 'brand', 'category', 'rating', 'price', 'countInStock', 'createdAt', 'colors', 'storage_options', 'color_images']
+
 
 
 class AccessoriesSerializer(serializers.ModelSerializer):
