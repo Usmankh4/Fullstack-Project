@@ -3,7 +3,7 @@ import { NextResponse, NextRequest } from "next/server";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req ,res) {
     const payload = await req.text()
     const response = JSON.parse(payload)
     const sig = req.headers.get("Stripe-Signature")
