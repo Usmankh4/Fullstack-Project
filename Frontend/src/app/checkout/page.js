@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Footer from '@/components/footer';
-import Header from '@/components/header';
-import { useCart } from "@/app/cart/CartContext";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
+import { useCart } from "../cart/CartContext";
 import { useRouter } from 'next/navigation';
 
 const getCartFromStorage = () => {

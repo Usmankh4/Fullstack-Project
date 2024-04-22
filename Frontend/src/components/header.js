@@ -1,7 +1,7 @@
 "use client";
 import "../app/globals.css";
 import Link from 'next/link';
-import { useCart } from "@/app/cart/CartContext";
+import { useCart } from "../app/cart/CartContext";
 export default function Header() {
   const { cartItems } = useCart();
   const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
