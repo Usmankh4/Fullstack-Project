@@ -1,5 +1,4 @@
 import Stripe from "stripe";
-import { NextResponse, NextRequest } from "next/server";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
@@ -15,9 +14,6 @@ export async function POST(req ,res) {
         'price.created',
         'price.updated',
         'checkout.session.completed',
-        'customer.subscription.created',
-        'customer.subscription.updated',
-        'customer.subscription.deleted',
       ]);
       
       try {
@@ -37,16 +33,6 @@ export async function POST(req ,res) {
             case 'price.created':
             case 'price.updated':
               await upsertPrice(event.data.object );
-              break;
-            case 'customer.subscription.created':
-            case 'customer.subscription.updated':
-            case 'customer.subscription.deleted':
-              const subscription = event.data.object ;
-              await upsertUserSubscription({
-                subscriptionId: subscription.id,
-                customerId: subscription.customer,
-                isCreateAction: false,
-              });
               break;
             case 'checkout.session.completed':
               const checkoutSession = event.data.object;
