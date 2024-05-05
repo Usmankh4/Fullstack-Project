@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, useRouter } from 'next/navigation'; 
+import { useParams, useRouter } from 'next/navigation';
 import { z } from 'zod';
 import Footer from "../../../../components/footer"
 import Header from "../../../../components/header";
@@ -29,14 +29,14 @@ const saveCartToStorage = (cart) => {
 
 export default function ProductPage() {
   const [phone, setPhone] = useState(null);
-  const { product } = useParams(); 
+  const { product } = useParams();
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedStorage, setSelectedStorage] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [finalPrice, setFinalPrice] = useState(0);
-  const [imageURL, setImageURL] = useState(''); 
+  const [imageURL, setImageURL] = useState('');
   const router = useRouter();
-  
+
 
 
   useEffect(() => {
@@ -72,17 +72,17 @@ export default function ProductPage() {
   const handleAddToCart = () => {
     const cartItemId = `${phone.id}_${selectedColor}_${selectedStorage}`;
     const productDetails = {
-        id: cartItemId,
-        productId: phone.id,
-        name: phone.name,
-        image: imageURL,
-        price: finalPrice,
-        quantity,
-        color: selectedColor,
-        storage: selectedStorage,
-        brand: phone.brand 
+      id: cartItemId,
+      productId: phone.id,
+      name: phone.name,
+      image: imageURL,
+      price: finalPrice,
+      quantity,
+      color: selectedColor,
+      storage: selectedStorage,
+      brand: phone.brand
     };
-  
+
     addToCart(productDetails);
   };
 
@@ -90,16 +90,16 @@ export default function ProductPage() {
     let cart = getCartFromStorage();
     const existingIndex = cart.findIndex(item => item.productId === productDetails.productId && item.color === productDetails.color && item.storage === productDetails.storage);
     if (existingIndex !== -1) {
-        cart[existingIndex].quantity += productDetails.quantity;
+      cart[existingIndex].quantity += productDetails.quantity;
     } else {
-        cart.push({
-            ...productDetails,
-            brand: phone.brand
-        });
+      cart.push({
+        ...productDetails,
+        brand: phone.brand
+      });
     }
     saveCartToStorage(cart);
     router.push('/checkout');
-};
+  };
 
 
 
@@ -115,13 +115,13 @@ export default function ProductPage() {
   const handleColorChange = (event) => {
     const newColorName = event.target.value;
     setSelectedColor(newColorName);
-    
+
     const colorImageEntry = phone.color_images.find(imageEntry => imageEntry.color_name === newColorName);
     const newImageURL = colorImageEntry ? colorImageEntry.image : phone.image;
     setImageURL(newImageURL);
   };
-  
-  
+
+
 
 
   const handleStorageChange = (event) => {
@@ -142,42 +142,46 @@ export default function ProductPage() {
             <img src={imageURL} alt={phone.name} />
           </div>
           <div className="ProductInfo">
-  <h2 className="ProductTitle">{phone.name}</h2>
-  <div className="ProductPrice">
-    <h3>${finalPrice.toFixed(2)}</h3>
-  </div>
-  <div className="SelectionsContainer">
-    <div className="ColourAndStorage">
-      <div className="ColourSelection">
-      <select value={selectedColor} onChange={handleColorChange}>
-        {phone.colors.map((color) => (
-          <option key={color.id} value={color.name}>{color.name}</option>
-           ))}
-            </select>
+            <h2 className="ProductTitle">{phone.name}</h2>
+            <div className="ProductPrice">
+              <h3>${finalPrice.toFixed(2)}</h3>
+            </div>
+            <div className="SelectionsContainer">
+              <div className="ColourAndStorage">
+                <div className="ColourSelection">
+                  <select value={selectedColor} onChange={handleColorChange}>
+                    {phone.colors.map((color) => (
+                      <option key={color.id} value={color.name}>{color.name}</option>
+                    ))}
+                  </select>
 
-      </div>
-      <div className="StorageSelection">
-        <select value={selectedStorage} onChange={handleStorageChange}>
-          {phone.storage_options.map((option) => (
-            <option key={option.id} value={option.storage_amount}>
-              {option.storage_amount}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="QuantitySelection">
-        <button onClick={decrementQuantity}>-</button>
-        <span>{quantity}</span>
-        <button onClick={incrementQuantity}>+</button>
-      </div>
-    </div>
-    <div className="cartButton">
-    <button onClick={() => handleAddToCart(product)}>Add To Cart</button>
+                </div>
+                <div className="StorageSelection">
+                  <select value={selectedStorage} onChange={handleStorageChange}>
+                    {phone.storage_options.map((option) => (
+                      <option key={option.id} value={option.storage_amount}>
+                        {option.storage_amount}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="QuantitySelection">
+                  <button onClick={decrementQuantity}>-</button>
+                  <span>{quantity}</span>
+                  <button onClick={incrementQuantity}>+</button>
+                </div>
+              </div>
+              <div className="cartButton">
+                <button onClick={() => handleAddToCart(product)}>Add To Cart</button>
+              </div>
+              <div className="cartButton">
+                <a href = "https://buy.stripe.com/test_00g5nX9974mh29q000" target="_blank">
+                <button>Buy Now!</button>
+                </a>
+              </div>
+            </div>
+          </div>
 
-    </div>
-  </div>
-</div>
-          
         </div>
       </div>
       <Footer />
