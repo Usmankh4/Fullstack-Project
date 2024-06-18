@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Product, Color, StorageOption, ProductColorImage, PhoneBrand, PhoneModel,RepairService, Accessories
-
+from django.contrib.auth.models import User
+from rest_framework import serializers
 
 class ColorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -56,3 +57,6 @@ class PhoneBrandSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'logo', 'models']
 
         
+
+
+

@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import { z } from 'zod';
-import Footer from "../../../../components/footer"
+import Footer from "../../../../components/footer";
 import Header from "../../../../components/header";
+import { loadStripe } from '@stripe/stripe-js';
 
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const CartItemSchema = z.object({
   id: z.string(),
@@ -37,14 +39,13 @@ export default function ProductPage() {
   const [imageURL, setImageURL] = useState('');
   const router = useRouter();
 
-
-
   useEffect(() => {
     const fetchPhone = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/myapp/api/products/${product}`);
         const phoneData = response.data;
         setPhone(phoneData);
+        
 
         if (phoneData.colors.length > 0) {
           const defaultColor = phoneData.colors[0];
@@ -68,7 +69,6 @@ export default function ProductPage() {
     fetchPhone();
   }, [product]);
 
-
   const handleAddToCart = () => {
     const cartItemId = `${phone.id}_${selectedColor}_${selectedStorage}`;
     const productDetails = {
@@ -80,7 +80,7 @@ export default function ProductPage() {
       quantity,
       color: selectedColor,
       storage: selectedStorage,
-      brand: phone.brand
+      brand: phone.brand,
     };
 
     addToCart(productDetails);
@@ -94,23 +94,20 @@ export default function ProductPage() {
     } else {
       cart.push({
         ...productDetails,
-        brand: phone.brand
+        brand: phone.brand,
       });
     }
     saveCartToStorage(cart);
     router.push('/checkout');
   };
 
-
-
-
   const incrementQuantity = () => {
-    setQuantity(prevQunatity => prevQunatity + 1)
+    setQuantity(prevQuantity => prevQuantity + 1);
   };
 
   const decrementQuantity = () => {
     setQuantity(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : 1);
-  }
+  };
 
   const handleColorChange = (event) => {
     const newColorName = event.target.value;
@@ -121,15 +118,36 @@ export default function ProductPage() {
     setImageURL(newImageURL);
   };
 
-
-
-
   const handleStorageChange = (event) => {
     const newStorage = event.target.value;
     const storageOption = phone.storage_options.find(option => option.storage_amount === newStorage);
     setSelectedStorage(newStorage);
     setFinalPrice(parseFloat(storageOption.price));
   };
+
+  const handleBuyNow = async () => {
+    
+    try {
+        const response = await axios.post('http://localhost:8000/myapp/api/create-checkout-session/', {
+            productId: phone.id,
+            price: finalPrice, 
+            quantity: quantity, 
+            image: imageURL 
+        });
+        const { sessionId } = response.data;
+        const stripe = await stripePromise;
+        const { error } = await stripe.redirectToCheckout({ sessionId });
+        if (error) {
+            console.error('Error redirecting to Stripe checkout:', error);
+        }
+    } catch (error) {
+        console.error('Error creating checkout session:', error);
+    }
+};
+
+
+
+console.log(imageURL);
 
   if (!phone) return null;
 
@@ -154,7 +172,6 @@ export default function ProductPage() {
                       <option key={color.id} value={color.name}>{color.name}</option>
                     ))}
                   </select>
-
                 </div>
                 <div className="StorageSelection">
                   <select value={selectedStorage} onChange={handleStorageChange}>
@@ -175,13 +192,10 @@ export default function ProductPage() {
                 <button onClick={() => handleAddToCart(product)}>Add To Cart</button>
               </div>
               <div className="cartButton">
-                <a href = "https://buy.stripe.com/test_00g5nX9974mh29q000" target="_blank">
-                <button>Buy Now!</button>
-                </a>
+                <button onClick={handleBuyNow}>Buy Now</button>
               </div>
             </div>
           </div>
-
         </div>
       </div>
       <Footer />

@@ -2,9 +2,8 @@
 import { useParams, useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-
+import Header from '../../../../components/header';
+import Footer from '../../../../components/footer';
 export default function PhoneRepairServices() {
     const router = useRouter();
     const { phone } = useParams();

@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from rest_framework.decorators import action
 from django.http import JsonResponse
@@ -17,6 +18,11 @@ from .models import PhoneBrand, PhoneModel, RepairService, Accessories
 from .serializers import PhoneBrandSerializer
 from rest_framework.response import Response
 from .serializers import PhoneBrandSerializer, PhoneModelSerializer, RepairServiceSerializer, AccessoriesSerializer
+import stripe
+from django.views.decorators.csrf import csrf_exempt
+from decimal import Decimal
+
+stripe.api_key = "sk_test_51P6GyV00AEQJL4BQfcA38jqXzCL1peWSeVdHKOsNU55GEZvN95ZqFyAECbB3c1dY5wJTNxPSybclAtVMdBnHLMFo00c9L93Cl3"
 
 def home(request):
     return HttpResponse("Welcome to the API homepage!")
@@ -78,3 +84,175 @@ class PhoneModelViewSet(viewsets.ModelViewSet):
 class AccessoriesViewSet(viewsets.ModelViewSet):
      queryset = Accessories.objects.all()
      serializer_class = AccessoriesSerializer
+
+
+@csrf_exempt
+def create_checkout_session(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        product_id = data['productId']
+        product = Product.objects.get(id=product_id)
+        price = Decimal(data['price'])
+        quantity = data['quantity']
+        image = data['image']
+
+        subtotal = price * quantity
+
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[{
+                'price_data': {
+                    'currency': 'cad',
+                    'product_data': {
+                        'name': product.name,
+                        'images': [image],  
+                    },
+                    'unit_amount': int(price * 100),  
+                },
+                'quantity': quantity,
+                'tax_rates': ['txr_1POoav00AEQJL4BQUWiXsRJO']
+            }],
+            shipping_address_collection={
+                'allowed_countries': ['CA', 'US']  # Add more countries if needed
+            },
+            shipping_options=[
+                {
+                    'shipping_rate_data': {
+                        'type': 'fixed_amount',
+                        'fixed_amount': {
+                            'amount': 1000,  # Free shipping
+                            'currency': 'cad',
+                        },
+                        'display_name': 'Standard Shipping',
+                        'delivery_estimate': {
+                            'minimum': {
+                                'unit': 'business_day',
+                                'value': 5,
+                            },
+                            'maximum': {
+                                'unit': 'business_day',
+                                'value': 7,
+                            },
+                        }
+                    }
+                },
+                {
+                    'shipping_rate_data': {
+                        'type': 'fixed_amount',
+                        'fixed_amount': {
+                            'amount': 1500,  # Next day air shipping
+                            'currency': 'cad',
+                        },
+                        'display_name': 'Next day air',
+                        'delivery_estimate': {
+                            'minimum': {
+                                'unit': 'business_day',
+                                'value': 1,
+                            },
+                            'maximum': {
+                                'unit': 'business_day',
+                                'value': 1,
+                            },
+                        }
+                    }
+                }
+            ],
+            mode='payment',
+            success_url='http://localhost:3000/success',
+            cancel_url='http://localhost:3000/cancel',
+        )
+
+        return JsonResponse({'sessionId': session.id})
+
+    return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+
+
+
+    
+
+@csrf_exempt
+def create_cart_checkout_session(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        cart = data['cart']
+
+        line_items = []
+
+        for item in cart:
+            item_price = Decimal(item['price'])
+            item_quantity = item['quantity']
+
+            line_items.append({
+                'price_data': {
+                    'currency': 'cad',
+                    'product_data': {
+                        'name': item['name'],
+                        'images': [item['image']],
+                    },
+                    'unit_amount': int(item_price * 100),  
+                },
+                'quantity': item_quantity,
+                'tax_rates': ['txr_1POoav00AEQJL4BQUWiXsRJO']
+            })
+
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=line_items,
+            shipping_address_collection={
+                'allowed_countries': ['CA', 'US']  # Add more countries if needed
+            },
+            shipping_options=[
+                {
+                    'shipping_rate_data': {
+                        'type': 'fixed_amount',
+                        'fixed_amount': {
+                            'amount': 1000,  
+                            'currency': 'cad',
+                        },
+                        'display_name': 'Standard Shipping',
+                        'delivery_estimate': {
+                            'minimum': {
+                                'unit': 'business_day',
+                                'value': 5,
+                            },
+                            'maximum': {
+                                'unit': 'business_day',
+                                'value': 7,
+                            },
+                        }
+                    }
+                },
+                {
+                    'shipping_rate_data': {
+                        'type': 'fixed_amount',
+                        'fixed_amount': {
+                            'amount': 1500,  # Next day air shipping
+                            'currency': 'cad',
+                        },
+                        'display_name': 'Next day air',
+                        'delivery_estimate': {
+                            'minimum': {
+                                'unit': 'business_day',
+                                'value': 1,
+                            },
+                            'maximum': {
+                                'unit': 'business_day',
+                                'value': 1,
+                            },
+                        }
+                    }
+                }
+            ],
+            mode='payment',
+            success_url='http://localhost:3000/success',
+            cancel_url='http://localhost:3000/cancel',
+        )
+
+        return JsonResponse({'sessionId': session.id})
+
+    return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+

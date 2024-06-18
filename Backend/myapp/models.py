@@ -1,12 +1,13 @@
 from ast import Or
 from operator import mod
 from django.db import models
-from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-
+import stripe
 
 # Create your models here.
+from django.conf import settings
 
+stripe.api_key = "sk_test_51P6GyV00AEQJL4BQfcA38jqXzCL1peWSeVdHKOsNU55GEZvN95ZqFyAECbB3c1dY5wJTNxPSybclAtVMdBnHLMFo00c9L93Cl3"
 class PhoneBrand(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     logo = models.ImageField(null=True, blank=True)
@@ -33,7 +34,6 @@ class RepairService(models.Model):
 
 class Product(models.Model):
     product_type= models.CharField(max_length=15, null=True, blank=True)
-    user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     name = models.CharField(max_length=200,null=True,blank=True)
     image = models.ImageField(null=True,blank = True)
     brand = models.CharField(max_length=200,null=True,blank=True)
@@ -44,13 +44,35 @@ class Product(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     colors = models.ManyToManyField('Color', related_name='products', blank=True)
     id = models.AutoField(primary_key=True,editable=False)
+    stripe_id = models.CharField(max_length=100, null=True, blank=True)  # This will store the ID of the product on Stripe
+    price_id = models.CharField(max_length=100, null=True, blank=True)  # This will store the URL of the product on Stripe
 
+    def save(self, *args, **kwargs):
+        if(self.price_id is None):
+            stripe_product = stripe.Product.create(name=self.name, default_price_data={'currency': 'cad', 'unit_amount_decimal': self.price*100})
+            self.stripe_id = stripe_product.id
+            self.price_id = stripe_product.default_price
+        elif(self.price_id is not None):
+    
+            stripe_product = stripe.Product.retrieve(self.stripe_id)  
+            new_price_id = stripe.Price.create(
+                product = self.stripe_id,
+                currency = 'cad',
+                unit_amount_decimal = self.price*100,
+                active=True
+            )
+            #update product with new price
+            stripe.Product.modify(self.stripe_id, name=self.name,default_price=new_price_id.id)
+            self.price_id  = new_price_id.id
+    
+            
+        super().save(*args, **kwargs)  # Call the "real" save() method.
     def __str__(self):
         return self.name
     
 
 class Accessories(models.Model):
-    user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    
     name = models.CharField(max_length=200,null=True,blank=True)
     brand = models.CharField(max_length=200,null=True,blank=True)
     image = models.ImageField(null=True,blank = True)
@@ -93,7 +115,7 @@ class StorageOption(models.Model):
     
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    
     paymentMethod = models.CharField(max_length=200, null=True, blank=True)
     taxPrice = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
     shippingPrice = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
