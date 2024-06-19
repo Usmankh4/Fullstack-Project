@@ -134,6 +134,7 @@ export default function ProductPage() {
             quantity: quantity, 
             image: imageURL 
         });
+        console.log('Image URL sent to Stripe:', imageURL);
         const { sessionId } = response.data;
         const stripe = await stripePromise;
         const { error } = await stripe.redirectToCheckout({ sessionId });

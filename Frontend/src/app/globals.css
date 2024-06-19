@@ -1001,7 +1001,9 @@ color: #222;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  margin-top: 100px;
+  margin-top: 10px;
+  float: right;
+  margin-bottom: 40px;
 }
 
 
@@ -1054,3 +1056,4 @@ color: #222;
 .button-cancel:hover {
   background-color: #e53935;
 }
+

@@ -13,4 +13,5 @@ urlpatterns = [
     path('api/create-checkout-session/', create_checkout_session, name='create-checkout-session'),
     path('api/create-cart-checkout-session/', create_cart_checkout_session, name='create-cart-checkout-session'),
     path('', home, name='home'),
+    
 ]

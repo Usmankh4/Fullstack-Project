@@ -1,26 +1,24 @@
 import json
-from django.shortcuts import render
-from rest_framework.decorators import action
-from django.http import JsonResponse
-from rest_framework import viewsets, filters
-from django_filters.rest_framework import DjangoFilterBackend
-from .models import Product
-from .serializers import ProductSerializer
-from django.http import HttpResponse
-from rest_framework import views
-from django.shortcuts import get_object_or_404
+import stripe
+from decimal import Decimal
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets, views, filters
+from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.response import Response
-from .serializers import ProductSerializer
-from rest_framework.decorators import api_view
-from .models import PhoneBrand, PhoneModel, RepairService, Accessories
-from .serializers import PhoneBrandSerializer
-from rest_framework.response import Response
-from .serializers import PhoneBrandSerializer, PhoneModelSerializer, RepairServiceSerializer, AccessoriesSerializer
-import stripe
-from django.views.decorators.csrf import csrf_exempt
-from decimal import Decimal
+from django_filters.rest_framework import DjangoFilterBackend
+from .models import Order, OrderItem, Product, PhoneBrand, PhoneModel, RepairService, Accessories
+from .serializers import (
+    ProductSerializer, 
+    PhoneBrandSerializer, 
+    PhoneModelSerializer, 
+    RepairServiceSerializer, 
+    AccessoriesSerializer
+)
+
+
 
 stripe.api_key = "sk_test_51P6GyV00AEQJL4BQfcA38jqXzCL1peWSeVdHKOsNU55GEZvN95ZqFyAECbB3c1dY5wJTNxPSybclAtVMdBnHLMFo00c9L93Cl3"
 

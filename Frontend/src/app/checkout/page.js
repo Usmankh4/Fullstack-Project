@@ -44,13 +44,17 @@ const CheckoutPage = () => {
       const { sessionId } = response.data;
       const stripe = await stripePromise;
       const { error } = await stripe.redirectToCheckout({ sessionId });
+      if (!error) {
+        localStorage.removeItem('cart');
+        setCartItems([]);
+      }
       if (error) {
         console.error('Error redirecting to Stripe checkout:', error);
       }
     } catch (error) {
       console.error('Error creating checkout session:', error);
     }
-  };
+  }
 
   const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -70,9 +74,10 @@ const CheckoutPage = () => {
                   <div className="ProductDetails">
                     <h3>{item.name}</h3>
                     <p>${(item.price * item.quantity).toFixed(2)}</p>
+                    <p>Quantity: {item.quantity}</p>
                     <p> Colour: {item.color}</p>
                     <p> Storage: {item.storage}</p>
-                    <p>Quantity: {item.quantity}</p> 
+                     
                   </div>
                   <div className="RemoveButton">
                     <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
