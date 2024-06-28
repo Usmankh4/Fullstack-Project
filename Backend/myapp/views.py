@@ -19,7 +19,6 @@ from .serializers import (
 )
 
 
-
 stripe.api_key = "sk_test_51P6GyV00AEQJL4BQfcA38jqXzCL1peWSeVdHKOsNU55GEZvN95ZqFyAECbB3c1dY5wJTNxPSybclAtVMdBnHLMFo00c9L93Cl3"
 
 def home(request):
@@ -38,13 +37,19 @@ def get_queryset(self):
 
 @api_view(['GET'])
 def product_list(request):
+    brand = request.query_params.get('brand', None)
+    queryset = Product.objects.all().order_by('id')
     
-    queryset = Product.objects.all()
+    if brand:
+        queryset = queryset.filter(brand__name__iexact=brand)
+
     paginator = PageNumberPagination()
-    paginator.page_size = 1
+    paginator.page_size = 5  # Adjust the page size to match frontend expectations
     result_page = paginator.paginate_queryset(queryset, request)
     serializer = ProductSerializer(result_page, many=True)
     return paginator.get_paginated_response(serializer.data)
+
+
 
 
 

@@ -86,6 +86,8 @@ export default function ProductPage() {
     addToCart(productDetails);
   };
 
+  
+
   const addToCart = (productDetails) => {
     let cart = getCartFromStorage();
     const existingIndex = cart.findIndex(item => item.productId === productDetails.productId && item.color === productDetails.color && item.storage === productDetails.storage);
