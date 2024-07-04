@@ -24,6 +24,15 @@ stripe.api_key = "sk_test_51P6GyV00AEQJL4BQfcA38jqXzCL1peWSeVdHKOsNU55GEZvN95ZqF
 def home(request):
     return HttpResponse("Welcome to the API homepage!")
 
+def search_products(request):
+    query = request.GET.get('q', '')
+    if query:
+        products = Product.objects.filter(name__icontains=query)
+    else:
+        products = Product.objects.all()
+    product_list = list(products.values())
+    return JsonResponse(product_list, safe=False)    
+
 class ProductViewSet(viewsets.ModelViewSet):
      queryset = Product.objects.all()
      serializer_class = ProductSerializer

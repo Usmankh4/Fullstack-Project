@@ -18,13 +18,16 @@ export default function BrandPage() {
       try {
         const response = await axios.get(`http://localhost:8000/myapp/api/products/?brand=${brand}&page=${currentPage}`);
         setPhones(response.data.results);
-        setPageCount(Math.ceil(response.data.count / response.data.results.length)); // Assuming the response contains a total count
+        setPageCount(Math.ceil(response.data.count / response.data.results.length)); 
       } catch (error) {
         console.error('Error fetching phones:', error);
       }
     };
     fetchPhones();
   }, [brand, currentPage]);
+
+
+  
 
   const handlePrevious = () => {
     if (currentPage > 1) {

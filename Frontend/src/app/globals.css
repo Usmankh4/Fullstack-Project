@@ -320,6 +320,10 @@ ul {
   -ms-animation: fadeIn 5s;
 
 }
+.heroImage img {
+  width: 100%;
+  height: auto;
+}
 
 @keyframes fadeIn {
   0% { opacity: 0; }
@@ -883,16 +887,16 @@ color: #222;
 
 .ProductImage {
   display: flex;
-  justify-content: center; /* Horizontally center the image */
-  align-items: center; /* Vertically center the image */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .ProductImage img {
-  width: 100%;
-  max-width: 200px;  /* Adjust the max width as needed */
+  width: 180px;
+  max-width:300px;  
   height: auto;
-  object-fit: contain; /* This will make sure the entire image fits inside the area */
-  display: block; /* To prevent inline spacing issues */
+  object-fit: contain; 
+  display: block; 
 }
 
 .ProductSelections {
@@ -918,9 +922,9 @@ color: #222;
 
 .QuantitySelection button {
   background-color: #fff;
-  border: none; /* Remove individual button borders */
-  padding: 10px; /* Adjust padding as needed */
-  margin: 0; /* Remove any default margins */
+  border: none; 
+  padding: 10px; 
+  margin: 0; 
   font-size: 16px;
   cursor: pointer;
   user-select: none;
@@ -934,7 +938,7 @@ color: #222;
   margin: 0 10px; 
   user-select: none; 
   font-size: 16px; 
-  font-family: Arial, Helvetica, sans-serif; /* Ensure the font is set */
+  font-family: Arial, Helvetica, sans-serif; 
 }
 
 .ColourSelection,
@@ -1258,3 +1262,132 @@ color: #222;
   background-color: #e53935;
 }
 
+
+.warranty-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 100px;
+}
+
+.warranty-container h1 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.warranty-container h2 {
+  font-size: 1.2em;
+  margin-top: 15px;
+  color: #333;
+}
+
+.warranty-container p {
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #666;
+}
+
+.warranty-container ul {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  list-style-type: none; /* Remove default bullets */
+}
+
+.warranty-container li {
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #666;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.warranty-container li::before {
+  content: '\2022'; /* Unicode for bullet point */
+  color: #007bff; /* Bullet color */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em; /* Adjust the position */
+}
+
+.warranty-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.warranty-container a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .warranty-container {
+    padding: 15px;
+  }
+
+  .warranty-container h1 {
+    font-size: 1.3em;
+  }
+
+  .warranty-container h2 {
+    font-size: 1.1em;
+  }
+
+  .warranty-container p,
+  .warranty-container li {
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .warranty-container {
+    padding: 10px;
+  }
+
+  .warranty-container h1 {
+    font-size: 1.2em;
+  }
+
+  .warranty-container h2 {
+    font-size: 1em;
+  }
+
+  .warranty-container p,
+  .warranty-container li {
+    font-size: 0.8em;
+  }
+}
+
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.repairImage {
+  right: 222px;
+}
+
+.repairImage img {
+  width: 100px; /* Adjust the width as needed */
+  height: auto;
+}
+
+.pageAfterHeader {
+  position: relative;
+}
+
+.RepairHeader {
+  text-align: left;
+}
+
+.RepairWrapper {
+  margin-top: 20px;
+}

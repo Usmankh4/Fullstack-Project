@@ -85,9 +85,7 @@ function Footer() {
              <li className="link">
                <Link href="/warranty">Warranty</Link>
              </li>
-             <li className="link">
-               <Link href="/covid19warranty">Covid-19 Warranty</Link>
-             </li>
+             
            </ul>
           </div>
         </div>

@@ -1,4 +1,5 @@
 "use client";
+
 import { createContext, useState, useContext, useEffect } from 'react';
 
 const CartContext = createContext();
@@ -26,4 +27,3 @@ function getCartFromStorage() {
   const cart = localStorage.getItem('cart');
   return cart ? JSON.parse(cart) : [];
 }
-

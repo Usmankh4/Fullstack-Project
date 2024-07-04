@@ -37,7 +37,7 @@ import { useParams } from 'next/navigation';
           {products.map((phone) => (
             
             <div className="phone-card" key={phone.name}>
-              {console.log(phone.name)}
+             
               <div className="phonecardPicture">
                 <div className="phonePicturewrapper">
               <img src={phone.image} alt={phone.name} width={150} height={204} />
