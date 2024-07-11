@@ -1,11 +1,13 @@
 "use client";
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import { z } from 'zod';
 import Footer from "../../../../components/footer";
 import Header from "../../../../components/header";
 import { loadStripe } from '@stripe/stripe-js';
+import SecurePayment from '../../../../components/securepayment';
+import CanadaWide from '../../../../components/canadawide';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
@@ -29,6 +31,16 @@ const saveCartToStorage = (cart) => {
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 
+const CollapsibleSection = ({ title, content, isOpen, toggleSection }) => (
+  <div className="CollapsibleSection">
+    <div className="SectionHeader" onClick={toggleSection}>
+      <span>{title}</span>
+      <span>{isOpen ? '-' : '+'}</span>
+    </div>
+    {isOpen && <div className="SectionContent">{content}</div>}
+  </div>
+);
+
 export default function ProductPage() {
   const [phone, setPhone] = useState(null);
   const { product } = useParams();
@@ -37,6 +49,8 @@ export default function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const [finalPrice, setFinalPrice] = useState(0);
   const [imageURL, setImageURL] = useState('');
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [shippingOpen, setShippingOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -45,7 +59,6 @@ export default function ProductPage() {
         const response = await axios.get(`http://localhost:8000/myapp/api/products/${product}`);
         const phoneData = response.data;
         setPhone(phoneData);
-        
 
         if (phoneData.colors.length > 0) {
           const defaultColor = phoneData.colors[0];
@@ -80,13 +93,10 @@ export default function ProductPage() {
       quantity,
       color: selectedColor,
       storage: selectedStorage,
-      brand: phone.brand,
     };
 
     addToCart(productDetails);
   };
-
-  
 
   const addToCart = (productDetails) => {
     let cart = getCartFromStorage();
@@ -104,12 +114,15 @@ export default function ProductPage() {
   };
 
   const incrementQuantity = () => {
-    setQuantity(prevQuantity => prevQuantity + 1);
-  };
+    if (quantity < phone.countInStock) {
+        setQuantity(prevQuantity => prevQuantity + 1);
+    }
+};
 
-  const decrementQuantity = () => {
+const decrementQuantity = () => {
     setQuantity(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : 1);
-  };
+};
+
 
   const handleColorChange = (event) => {
     const newColorName = event.target.value;
@@ -128,31 +141,37 @@ export default function ProductPage() {
   };
 
   const handleBuyNow = async () => {
-    
     try {
-        const response = await axios.post('http://localhost:8000/myapp/api/create-checkout-session/', {
-            productId: phone.id,
-            price: finalPrice, 
-            quantity: quantity, 
-            image: imageURL 
-        });
-        console.log('Image URL sent to Stripe:', imageURL);
-        const { sessionId } = response.data;
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({ sessionId });
-        if (error) {
-            console.error('Error redirecting to Stripe checkout:', error);
-        }
+      const response = await axios.post('http://localhost:8000/myapp/api/create-checkout-session/', {
+        productId: phone.id,
+        price: finalPrice,
+        quantity: quantity,
+        image: imageURL
+      });
+
+      const { sessionId } = response.data;
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+      if (error) {
+        console.error('Error redirecting to Stripe checkout:', error);
+      }
     } catch (error) {
-        console.error('Error creating checkout session:', error);
+      console.error('Error creating checkout session:', error);
     }
-};
+  };
 
+  const toggleDetails = () => {
+    setDetailsOpen(!detailsOpen);
+  };
 
-
-console.log(imageURL);
+  const toggleShipping = () => {
+    setShippingOpen(!shippingOpen);
+  };
 
   if (!phone) return null;
+
+  const isOutOfStock = phone.countInStock <= 0;
+  const isAlmostOutOfStock = phone.countInStock > 0 && phone.countInStock <= 5;
 
   return (
     <div>
@@ -186,19 +205,48 @@ console.log(imageURL);
                   </select>
                 </div>
                 <div className="QuantitySelection">
-                  <button onClick={decrementQuantity}>-</button>
-                  <span>{quantity}</span>
-                  <button onClick={incrementQuantity}>+</button>
-                </div>
+                <button onClick={decrementQuantity}>-</button>
+                <span>{quantity}</span>
+                <button onClick={incrementQuantity} disabled={quantity >= phone.countInStock}>+</button>
+                  </div>
               </div>
-              <div className="cartButton">
-                <button onClick={() => handleAddToCart(product)}>Add To Cart</button>
+              <div className="StockStatus">
+                <p>{phone.countInStock > 0 ? `In Stock: ${phone.countInStock}` : "Out of Stock"}</p>
+                {isAlmostOutOfStock && <p style={{ color: 'red' }}>Hurry! Only {phone.countInStock} left in stock!</p>}
               </div>
-              <div className="cartButton">
-                <button onClick={handleBuyNow}>Buy Now</button>
+              <div className="cartButtons">
+                <button 
+                  onClick={handleAddToCart} 
+                  disabled={isOutOfStock} 
+                  style={{ backgroundColor: isOutOfStock ? 'grey' : undefined }}
+                >
+                  Add To Cart
+                </button>
+                <button 
+                  onClick={handleBuyNow} 
+                  disabled={isOutOfStock} 
+                  style={{ backgroundColor: isOutOfStock ? 'grey' : undefined }}
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+            <div className="InfoIcons">
+              <div className="InfoIcon">
+                <SecurePayment />
+              </div>
+              <div className="InfoIcon">
+                <CanadaWide />
+                <span>Canada Wide Shipping</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="CollapsibleSections">
+        <div className='CollapsibleContainer'>
+          <CollapsibleSection title="DETAILS" content={<p>{phone.description}</p>} isOpen={detailsOpen} toggleSection={toggleDetails} />
+          <CollapsibleSection title="SHIPPING" content={<p>Shipping details will be here.</p>} isOpen={shippingOpen} toggleSection={toggleShipping} />
         </div>
       </div>
       <Footer />

@@ -44,6 +44,7 @@ class Product(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     colors = models.ManyToManyField('Color', related_name='products', blank=True)
     id = models.AutoField(primary_key=True,editable=False)
+    description = models.TextField(null=True, blank=True)
     stripe_id = models.CharField(max_length=100, null=True, blank=True)  # This will store the ID of the product on Stripe
     price_id = models.CharField(max_length=100, null=True, blank=True)  # This will store the URL of the product on Stripe
 

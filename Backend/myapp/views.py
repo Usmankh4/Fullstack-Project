@@ -43,6 +43,14 @@ class ProductViewSet(viewsets.ModelViewSet):
 def get_queryset(self):
         return Product.objects.prefetch_related('colors').all()
     
+@api_view(['POST'])
+def update_stock(request):
+    product_id = request.data.get('product_id')
+    quantity = request.data.get('quantity')
+    product = get_object_or_404(Product, id=product_id)
+    product.reduce_stock(quantity)
+    return Response({'status': 'success'})
+    
 
 @api_view(['GET'])
 def product_list(request):

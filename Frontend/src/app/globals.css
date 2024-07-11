@@ -701,17 +701,15 @@ color: #222;
   overflow: hidden; /* this will clip the image to the wrapper's dimensions */
 }
 .phonePicture img{
-  width: 210px;
+  width: 100px;
   padding: 25px;
+  height:110px;
 }
 
 
 .phone-card .phonePicture {
   margin-bottom: 20px; 
   
-}
-.phonePicture img {
-  height: 150px; /* Adjust this value to your desired height */
 }
 
 .phone-card h4 {
@@ -868,9 +866,7 @@ color: #222;
   margin: 0;
   
 }
-/* ProductPage.module.css */
-/* ProductPage.module.css */
-/* ProductPage.module.css */
+
 
 .ProductLayout {
   display: flex;
@@ -897,6 +893,7 @@ color: #222;
   height: auto;
   object-fit: contain; 
   display: block; 
+  margin-bottom: 250px;
 }
 
 .ProductSelections {
@@ -929,6 +926,11 @@ color: #222;
   cursor: pointer;
   user-select: none;
   outline: none;
+}
+
+.cartButtons button[disabled] {
+  cursor: not-allowed;
+  background-color: grey;
 }
 
 .QuantitySelection span {
@@ -1016,6 +1018,86 @@ color: #222;
   cursor: pointer;
 }
 
+
+.CollapsibleSections {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto; /* Center the collapsible sections */
+  padding: 0 20px; /* Adjust padding if needed */
+}
+
+.CollapsibleSection {
+  margin-bottom: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.SectionHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.SectionContent {
+  padding: 10px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cartButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.cartButtons button {
+  flex: 1;
+  width: 149px;
+  background-color: #222222;
+  padding: 10px 10px;
+  border: none;
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 0; /* Adjusted to ensure the margin is consistent */
+}
+
+.cartButtons button:hover {
+  background-color: #333333;
+}
+
+.cartButtons button:active {
+  background-color: #111111;
+}
+
+.InfoIcons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.InfoIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.InfoIcon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.InfoIcon span {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
 /* Media Queries for Responsiveness */
 
 /* Small devices (phones, 600px and down) */
@@ -1096,7 +1178,7 @@ color: #222;
 }
 
 .CartPage {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -1375,19 +1457,102 @@ color: #222;
   right: 222px;
 }
 
-.repairImage img {
-  width: 100px; /* Adjust the width as needed */
-  height: auto;
-}
-
 .pageAfterHeader {
   position: relative;
 }
 
-.RepairHeader {
-  text-align: left;
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+ 
 }
 
-.RepairWrapper {
-  margin-top: 20px;
+.repairContainer {
+  flex: 1;
+  max-width: 1230px; /* Adjust as needed */
+  padding: 20px;
+  margin-left: 250px;
 }
+
+.repairHeader {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.repairHeaderContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.phoneTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.repairImage {
+  max-width: 100px;
+  border-radius: 8px;
+}
+
+.repairWrapper {
+  padding: 20px;
+  border-top: 1px solid #eaeaea;
+  margin-bottom: 30px;
+}
+
+.repairServicesList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.repairServiceItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.serviceName {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.servicePrice {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #0070f3;
+  margin-top: 50px;
+}
+
+.noServices {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.repairInfo {
+  max-width: 300px; /* Adjust the width as needed */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-left: 20px; /* Space between main content and repair info */
+}
+
+
+
+
+

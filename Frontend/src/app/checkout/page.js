@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { useCart } from "../cart/CartContext";
@@ -9,17 +9,12 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
-const getCartFromStorage = () => {
-  const cart = localStorage.getItem('cart');
-  return cart ? JSON.parse(cart) : [];
-};
-
 const CheckoutPage = () => {
-  const { cartItems, setCartItems } = useCart(); 
+  const { cartItems, setCartItems, clearCart } = useCart();
   const router = useRouter();
 
   useEffect(() => {
-    setCartItems(getCartFromStorage()); 
+    setCartItems(getCartFromStorage());
   }, [setCartItems]);
 
   const handleRemoveFromCart = (id) => {
@@ -28,10 +23,10 @@ const CheckoutPage = () => {
         return { ...item, quantity: item.quantity - 1 };
       }
       return item;
-    }).filter(item => item.quantity > 0); 
+    }).filter(item => item.quantity > 0);
 
-    setCartItems(updatedCart); 
-    localStorage.setItem('cart', JSON.stringify(updatedCart)); 
+    setCartItems(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
   const navigateToProduct = (productId, brand) => {
@@ -40,28 +35,32 @@ const CheckoutPage = () => {
 
   const handleCheckout = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/myapp/api/create-cart-checkout-session/', { cart: cartItems });
-      const { sessionId } = response.data;
-      const stripe = await stripePromise;
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-      if (!error) {
-        localStorage.removeItem('cart');
-        setCartItems([]);
-      }
-      if (error) {
-        console.error('Error redirecting to Stripe checkout:', error);
-      }
+        const response = await axios.post('/api/create-checkout-session/', { cart: cartItems });
+        const { sessionId } = response.data;
+        const stripe = await stripePromise;
+        const { error } = await stripe.redirectToCheckout({ sessionId });
+        if (!error) {
+            await axios.post('/api/update-stock/', {
+                product_id: phone.id,
+                quantity: quantity,
+            });
+            clearCart();
+            router.push('/success');
+        } else {
+            console.error('Error redirecting to Stripe checkout:', error);
+        }
     } catch (error) {
-      console.error('Error creating checkout session:', error);
+        console.error('Error creating checkout session:', error);
     }
-  }
+};
+
 
   const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <div className="page-container">
       <div className="content-wrap">
-        <Header cartItems={cartItems}/>
+        <Header cartItems={cartItems} />
         <div className="pageAfterHeader">
           {cartItems.length > 0 ? (
             <div className="CartPage">
@@ -77,7 +76,7 @@ const CheckoutPage = () => {
                     <p>Quantity: {item.quantity}</p>
                     <p> Colour: {item.color}</p>
                     <p> Storage: {item.storage}</p>
-                     
+                    <p> Stock: {item.countInStock}</p>
                   </div>
                   <div className="RemoveButton">
                     <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
@@ -100,9 +99,14 @@ const CheckoutPage = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
 
 export default CheckoutPage;
+
+const getCartFromStorage = () => {
+  const cart = localStorage.getItem('cart');
+  return cart ? JSON.parse(cart) : [];
+};

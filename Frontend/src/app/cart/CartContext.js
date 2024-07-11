@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext, useCallback } from 'react';
 
 const CartContext = createContext();
 
@@ -9,15 +9,17 @@ export function useCart() {
 }
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => getCartFromStorage());
 
-  useEffect(() => {
-    setCartItems(getCartFromStorage());
+  const clearCart = useCallback(() => {
+    setCartItems([]);
+    localStorage.removeItem('cart');
   }, []);
 
   const value = {
     cartItems,
     setCartItems,
+    clearCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
