@@ -43,13 +43,6 @@ class ProductViewSet(viewsets.ModelViewSet):
 def get_queryset(self):
         return Product.objects.prefetch_related('colors').all()
     
-@api_view(['POST'])
-def update_stock(request):
-    product_id = request.data.get('product_id')
-    quantity = request.data.get('quantity')
-    product = get_object_or_404(Product, id=product_id)
-    product.reduce_stock(quantity)
-    return Response({'status': 'success'})
     
 
 @api_view(['GET'])
@@ -106,6 +99,13 @@ class AccessoriesViewSet(viewsets.ModelViewSet):
      serializer_class = AccessoriesSerializer
 
 
+def get_stock_data(request):
+    products = Product.objects.all()
+    stock_data = {product.id: product.countInStock for product in products}
+    return JsonResponse(stock_data)
+
+
+
 @csrf_exempt
 def create_checkout_session(request):
     if request.method == 'POST':
@@ -116,7 +116,12 @@ def create_checkout_session(request):
         quantity = data['quantity']
         image = data['image']
 
-        subtotal = price * quantity
+        if quantity > product.countInStock:
+            return JsonResponse({'error': 'Quantity exceeds stock for ' + product.name}, status=400)
+
+        # Reserve the stock
+        product.countInStock -= quantity
+        product.save()
 
         session = stripe.checkout.Session.create(
             payment_method_types=['card'],
@@ -133,14 +138,14 @@ def create_checkout_session(request):
                 'tax_rates': ['txr_1POoav00AEQJL4BQUWiXsRJO']
             }],
             shipping_address_collection={
-                'allowed_countries': ['CA', 'US']  # Add more countries if needed
+                'allowed_countries': ['CA', 'US']
             },
             shipping_options=[
                 {
                     'shipping_rate_data': {
                         'type': 'fixed_amount',
                         'fixed_amount': {
-                            'amount': 1000,  # Free shipping
+                            'amount': 1000,
                             'currency': 'cad',
                         },
                         'display_name': 'Standard Shipping',
@@ -160,7 +165,7 @@ def create_checkout_session(request):
                     'shipping_rate_data': {
                         'type': 'fixed_amount',
                         'fixed_amount': {
-                            'amount': 1500,  # Next day air shipping
+                            'amount': 1500,
                             'currency': 'cad',
                         },
                         'display_name': 'Next day air',
@@ -185,12 +190,6 @@ def create_checkout_session(request):
         return JsonResponse({'sessionId': session.id})
 
     return JsonResponse({'error': 'Invalid request method'}, status=400)
-
-
-
-
-
-    
 
 @csrf_exempt
 def create_cart_checkout_session(request):
@@ -201,8 +200,16 @@ def create_cart_checkout_session(request):
         line_items = []
 
         for item in cart:
+            product = Product.objects.get(id=item['productId'])
             item_price = Decimal(item['price'])
             item_quantity = item['quantity']
+
+            if item_quantity > product.countInStock:
+                return JsonResponse({'error': 'Quantity exceeds stock for ' + product.name}, status=400)
+
+            # Reserve the stock
+            product.countInStock -= item_quantity
+            product.save()
 
             line_items.append({
                 'price_data': {
@@ -211,7 +218,7 @@ def create_cart_checkout_session(request):
                         'name': item['name'],
                         'images': [item['image']],
                     },
-                    'unit_amount': int(item_price * 100),  
+                    'unit_amount': int(item_price * 100),
                 },
                 'quantity': item_quantity,
                 'tax_rates': ['txr_1POoav00AEQJL4BQUWiXsRJO']
@@ -221,14 +228,14 @@ def create_cart_checkout_session(request):
             payment_method_types=['card'],
             line_items=line_items,
             shipping_address_collection={
-                'allowed_countries': ['CA', 'US']  # Add more countries if needed
+                'allowed_countries': ['CA', 'US']
             },
             shipping_options=[
                 {
                     'shipping_rate_data': {
                         'type': 'fixed_amount',
                         'fixed_amount': {
-                            'amount': 1000,  
+                            'amount': 1000,
                             'currency': 'cad',
                         },
                         'display_name': 'Standard Shipping',
@@ -248,7 +255,7 @@ def create_cart_checkout_session(request):
                     'shipping_rate_data': {
                         'type': 'fixed_amount',
                         'fixed_amount': {
-                            'amount': 1500,  # Next day air shipping
+                            'amount': 1500,
                             'currency': 'cad',
                         },
                         'display_name': 'Next day air',
@@ -273,6 +280,7 @@ def create_cart_checkout_session(request):
         return JsonResponse({'sessionId': session.id})
 
     return JsonResponse({'error': 'Invalid request method'}, status=400)
+
 
 
 

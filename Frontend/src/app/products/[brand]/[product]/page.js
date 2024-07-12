@@ -8,6 +8,7 @@ import Header from "../../../../components/header";
 import { loadStripe } from '@stripe/stripe-js';
 import SecurePayment from '../../../../components/securepayment';
 import CanadaWide from '../../../../components/canadawide';
+import { useCart } from '../../../cart/CartContext';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
@@ -52,6 +53,8 @@ export default function ProductPage() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [shippingOpen, setShippingOpen] = useState(false);
   const router = useRouter();
+
+  const { cartItems, stockData } = useCart(); // Access stockData from CartContext
 
   useEffect(() => {
     const fetchPhone = async () => {
@@ -101,28 +104,45 @@ export default function ProductPage() {
   const addToCart = (productDetails) => {
     let cart = getCartFromStorage();
     const existingIndex = cart.findIndex(item => item.productId === productDetails.productId && item.color === productDetails.color && item.storage === productDetails.storage);
+    let newQuantity = productDetails.quantity;
+
     if (existingIndex !== -1) {
-      cart[existingIndex].quantity += productDetails.quantity;
+      newQuantity += cart[existingIndex].quantity;
+    }
+
+    const availableStock = stockData[productDetails.productId] || phone.countInStock;
+
+    if (newQuantity > availableStock) {
+      alert('Cannot add more items than available in stock');
+      return;
+    }
+
+    if (existingIndex !== -1) {
+      cart[existingIndex].quantity = newQuantity;
     } else {
       cart.push({
         ...productDetails,
         brand: phone.brand,
       });
     }
+
     saveCartToStorage(cart);
     router.push('/checkout');
   };
 
   const incrementQuantity = () => {
-    if (quantity < phone.countInStock) {
-        setQuantity(prevQuantity => prevQuantity + 1);
+    const availableStock = stockData[phone.id] || phone.countInStock;
+
+    if (quantity < availableStock) {
+      setQuantity(prevQuantity => prevQuantity + 1);
+    } else {
+      alert('Cannot add more items than available in stock');
     }
-};
+  };
 
-const decrementQuantity = () => {
-    setQuantity(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : 1);
-};
-
+  const decrementQuantity = () => {
+    setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+  };
 
   const handleColorChange = (event) => {
     const newColorName = event.target.value;
@@ -205,10 +225,10 @@ const decrementQuantity = () => {
                   </select>
                 </div>
                 <div className="QuantitySelection">
-                <button onClick={decrementQuantity}>-</button>
-                <span>{quantity}</span>
-                <button onClick={incrementQuantity} disabled={quantity >= phone.countInStock}>+</button>
-                  </div>
+                  <button onClick={decrementQuantity}>-</button>
+                  <span>{quantity}</span>
+                  <button onClick={incrementQuantity} disabled={quantity >= (stockData[phone.id] || phone.countInStock)}>+</button>
+                </div>
               </div>
               <div className="StockStatus">
                 <p>{phone.countInStock > 0 ? `In Stock: ${phone.countInStock}` : "Out of Stock"}</p>
@@ -234,10 +254,11 @@ const decrementQuantity = () => {
             <div className="InfoIcons">
               <div className="InfoIcon">
                 <SecurePayment />
+                <span>SECURE PAYMENT</span>
               </div>
               <div className="InfoIcon">
                 <CanadaWide />
-                <span>Canada Wide Shipping</span>
+                <span>CANADA WIDE SHIPPING</span>
               </div>
             </div>
           </div>

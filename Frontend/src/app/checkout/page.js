@@ -26,7 +26,7 @@ const CheckoutPage = () => {
     }).filter(item => item.quantity > 0);
 
     setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    saveCartToStorage(updatedCart);
   };
 
   const navigateToProduct = (productId, brand) => {
@@ -35,25 +35,19 @@ const CheckoutPage = () => {
 
   const handleCheckout = async () => {
     try {
-        const response = await axios.post('/api/create-checkout-session/', { cart: cartItems });
-        const { sessionId } = response.data;
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({ sessionId });
-        if (!error) {
-            await axios.post('/api/update-stock/', {
-                product_id: phone.id,
-                quantity: quantity,
-            });
-            clearCart();
-            router.push('/success');
-        } else {
-            console.error('Error redirecting to Stripe checkout:', error);
-        }
+      const response = await axios.post('http://localhost:8000/myapp/api/create-cart-checkout-session/', { cart: cartItems });
+      const { sessionId } = response.data;
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+      if (!error) {
+        clearCart();
+      } else {
+        console.error('Error redirecting to Stripe checkout:', error);
+      }
     } catch (error) {
-        console.error('Error creating checkout session:', error);
+      console.error('Error creating checkout session:', error);
     }
-};
-
+  }
 
   const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -76,7 +70,7 @@ const CheckoutPage = () => {
                     <p>Quantity: {item.quantity}</p>
                     <p> Colour: {item.color}</p>
                     <p> Storage: {item.storage}</p>
-                    <p> Stock: {item.countInStock}</p>
+                    
                   </div>
                   <div className="RemoveButton">
                     <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
@@ -109,4 +103,8 @@ export default CheckoutPage;
 const getCartFromStorage = () => {
   const cart = localStorage.getItem('cart');
   return cart ? JSON.parse(cart) : [];
+};
+
+const saveCartToStorage = (cart) => {
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
