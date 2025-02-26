@@ -13,7 +13,13 @@ SECRET_KEY = 'django-insecure-9yb(g&=*y7o#at)ey)wd$nx14jp$p%x$h@f2==0uv%c%j(ywo4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    "fullstack-project-6d1r.onrender.com",  # Add your Render domain here
+    "localhost",  # Keep localhost for local development
+    "127.0.0.1",  # Keep this too
+]
+
 
 
 
@@ -78,14 +84,11 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.kdygfdyyqautyzkiweua',
-        'PASSWORD': '3L5CqCKZec6Ca9Yo',
-        'HOST': 'aws-0-ca-central-1.pooler.supabase.com',
-        'PORT': '6543'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -128,4 +131,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
